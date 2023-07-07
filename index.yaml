@@ -1,0 +1,128 @@
+apiVersion: v1
+entries:
+  backup:
+  - apiVersion: v2
+    created: "2023-07-07T14:45:39.820738839Z"
+    description: Chart to back up PVCs with restic and regularly clean up the snapshots.
+    digest: 18f4883386058e521ac22b64f1cd7f33369978ade59dc409f70dcac19c6e65a5
+    maintainers:
+    - name: morremeyer
+    - name: ekeih
+    name: backup
+    type: application
+    urls:
+    - https://github.com/community-tooling/charts/releases/download/backup-3.2.2/backup-3.2.2.tgz
+    version: 3.2.2
+  cronjob:
+  - apiVersion: v2
+    created: "2023-07-07T14:45:39.940468228Z"
+    description: Run jobs on a schedule
+    digest: 727759a814f4ba83f5227da40458b48c2c58686b1d82b0754aaa2dbcdb34a34d
+    maintainers:
+    - name: morremeyer
+    - name: ekeih
+    name: cronjob
+    type: application
+    urls:
+    - https://github.com/community-tooling/charts/releases/download/cronjob-3.1.4/cronjob-3.1.4.tgz
+    version: 3.1.4
+  generic:
+  - apiVersion: v2
+    created: "2023-07-07T14:45:40.058253424Z"
+    description: A chart for generic applications. Use this if you need to deploy
+      something without wanting to build a fully fledged new helm chart.
+    digest: aadec3d542e3b78a6c1ec3fe519a590148f7c05a3cb97938e3724a901d265bb5
+    maintainers:
+    - name: morremeyer
+    - name: ekeih
+    name: generic
+    type: application
+    urls:
+    - https://github.com/community-tooling/charts/releases/download/generic-7.2.1/generic-7.2.1.tgz
+    version: 7.2.1
+  hcloud-ccm-networks:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2023-07-07T14:45:40.209243506Z"
+    description: Deploys the hcloud-ccm
+    digest: e9aac42c46b11c3104a9877ff9f62a00d3042c9bd6d74f94be03f79ec542fbaa
+    home: https://github.com/morremeyer/charts
+    maintainers:
+    - name: morremeyer
+    - name: ekeih
+    name: hcloud-ccm-networks
+    sources:
+    - https://github.com/hetznercloud/hcloud-cloud-controller-manager
+    type: application
+    urls:
+    - https://github.com/community-tooling/charts/releases/download/hcloud-ccm-networks-1.16.0/hcloud-ccm-networks-1.16.0.tgz
+    version: 1.16.0
+  hcloud-csi-driver:
+  - apiVersion: v2
+    appVersion: 2.3.2
+    created: "2023-07-07T14:45:40.34490384Z"
+    description: Deploys the hcloud-csi-driver
+    digest: 49e76f1d00946a47b07b9a98a799daa443bf6afca97f73881970867edefabda4
+    home: https://github.com/morremeyer/charts
+    maintainers:
+    - name: morremeyer
+    - name: ekeih
+    name: hcloud-csi-driver
+    sources:
+    - https://github.com/hetznercloud/csi-driver
+    type: application
+    urls:
+    - https://github.com/community-tooling/charts/releases/download/hcloud-csi-driver-2.3.2/hcloud-csi-driver-2.3.2.tgz
+    version: 2.3.2
+  kube-prometheus-stack-crds:
+  - apiVersion: v2
+    created: "2023-07-07T14:45:40.529780706Z"
+    description: Deploys the kube-prometheus-stack CRDs to your cluster
+    digest: 92384d04c37efb38691af79f1c8a3f4d4945278477c341593c6e1d65f92911a0
+    maintainers:
+    - name: morremeyer
+    name: kube-prometheus-stack-crds
+    type: application
+    urls:
+    - https://github.com/community-tooling/charts/releases/download/kube-prometheus-stack-crds-47.3.0/kube-prometheus-stack-crds-47.3.0.tgz
+    version: 47.3.0
+  mailtrain:
+  - apiVersion: v2
+    created: "2023-07-07T14:45:40.65961146Z"
+    description: Runs mailtrain in your kubernetes cluster
+    digest: ef8ce07e08baef5a37409732e279e90aa5198a4b0ec47e00153c7d49c14f2354
+    maintainers:
+    - name: morremeyer
+    name: mailtrain
+    type: application
+    urls:
+    - https://github.com/community-tooling/charts/releases/download/mailtrain-2.0.0/mailtrain-2.0.0.tgz
+    version: 2.0.0
+  namespaces:
+  - apiVersion: v2
+    created: "2023-07-07T14:45:40.802909873Z"
+    description: Deploy namespaces with (default) networkpolicies
+    digest: 358e83021d950ccb7d2aec2a3e74cacf941aee5a8292bb5cb7cbe72c1c973dcb
+    maintainers:
+    - email: charts@mor.re
+      name: morremeyer
+    - name: ekeih
+    name: namespaces
+    type: application
+    urls:
+    - https://github.com/community-tooling/charts/releases/download/namespaces-3.1.1/namespaces-3.1.1.tgz
+    version: 3.1.1
+  znc:
+  - apiVersion: v2
+    created: "2023-07-07T14:45:40.95813165Z"
+    description: Installs ZNC (an IRC bouncer) to your cluster
+    digest: 3afecd554d72c3e85b9e455ff0d0022da5c85a28b00161f9ae46278df280d54c
+    maintainers:
+    - email: charts@mor.re
+      name: morremeyer
+    name: znc
+    type: application
+    urls:
+    - https://github.com/community-tooling/charts/releases/download/znc-1.0.2/znc-1.0.2.tgz
+    version: 1.0.2
+generated: "2023-07-07T14:45:40.958250849Z"
