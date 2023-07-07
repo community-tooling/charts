@@ -7,10 +7,10 @@ Pull requests are welcome, check [CONTRIBUTING.md](CONTRIBUTING.md) for detailed
 ## Usage
 
 ```sh
-helm repo add morre https://morremeyer.github.io/charts/
+helm repo add community-tooling https://community-tooling.github.io/charts/
 
 # Install a cronjob with the cronjob chart. Fill the my-cron-values.yaml file before running this!
-helm install cronjob morre/cronjob --values my-cron-values.yaml
+helm install cronjob community-tooling/cronjob --values my-cron-values.yaml
 ```
 
 ## Maintainers
