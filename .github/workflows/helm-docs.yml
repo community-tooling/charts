@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     # Only run this for PRs from the charts repo itself (to auto-update docs for renovate PRs)
     # For PRs made by humans, running pre-commit locally is required.
-    if: ${{ github.event.pull_request.head.repo.full_name == 'morremeyer/charts' }}
+    if: ${{ github.event.pull_request.head.repo.full_name == 'community-tooling/charts' }}
     steps:
       - uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3
 
@@ -33,5 +33,5 @@ jobs:
           message: "docs: regenerate chart README.md"
           add: "charts/**/README.md"
           pull: "--rebase --autostash"
-          author_name: Morre's Bot
-          author_email: morremeyer-bot@maurice-meyer.de
+          author_name: Community Tooling Bot
+          author_email: community-tooling@maurice-meyer.de

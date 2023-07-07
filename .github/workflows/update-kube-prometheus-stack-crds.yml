@@ -41,5 +41,5 @@ jobs:
           message: "chore(deps): update kube-prometheus-stack CRDs"
           add: "charts/kube-prometheus-stack-crds/templates/*"
           pull: "--rebase --autostash"
-          author_name: Morre's Bot
-          author_email: morremeyer-bot@maurice-meyer.de
+          author_name: Community Tooling Bot
+          author_email: community-tooling@maurice-meyer.de

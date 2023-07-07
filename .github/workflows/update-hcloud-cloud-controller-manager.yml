@@ -31,5 +31,5 @@ jobs:
           message: "chore(deps): update hcloud-ccm-networks"
           add: "charts/hcloud-ccm-networks/*"
           pull: "--rebase --autostash"
-          author_name: Morre's Bot
-          author_email: morremeyer-bot@maurice-meyer.de
+          author_name: Community Tooling Bot
+          author_email: community-tooling@maurice-meyer.de

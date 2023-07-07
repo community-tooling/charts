@@ -6,6 +6,6 @@ on:
 jobs:
   helm-docs:
     runs-on: ubuntu-latest
-    if: ${{ github.event.pull_request.head.repo.full_name != 'morremeyer/charts' }}
+    if: ${{ github.event.pull_request.head.repo.full_name != 'community-tooling/charts' }}
     steps:
       - run: echo "Not a renovate PR, nothing to do"

@@ -31,5 +31,5 @@ jobs:
           message: "chore(deps): update hcloud-csi-driver"
           add: "charts/hcloud-csi-driver/*"
           pull: "--rebase --autostash"
-          author_name: Morre's Bot
-          author_email: morremeyer-bot@maurice-meyer.de
+          author_name: Community Tooling Bot
+          author_email: community-tooling@maurice-meyer.de
