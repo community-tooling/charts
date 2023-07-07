@@ -5,6 +5,9 @@ on:
     paths:
       - charts/kube-prometheus-stack-crds/Chart.yaml
 
+permissions:
+  contents: write
+
 jobs:
   update-crds:
     runs-on: ubuntu-latest
@@ -12,7 +15,6 @@ jobs:
       - uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3
         with:
           ref: ${{ github.head_ref }}
-          token: ${{ secrets.REPO_PACKAGES_TOKEN }}
 
       - name: Remove CRDs
         run: rm charts/kube-prometheus-stack-crds/templates/*

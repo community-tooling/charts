@@ -6,6 +6,9 @@ on:
       - charts/hcloud-ccm-networks/Chart.yaml
       - .github/workflows/update-hcloud-cloud-controller-manager.yml
 
+permissions:
+  contents: write
+
 jobs:
   update-crds:
     runs-on: ubuntu-latest
@@ -13,7 +16,6 @@ jobs:
       - uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3
         with:
           ref: ${{ github.head_ref }}
-          token: ${{ secrets.REPO_PACKAGES_TOKEN }}
 
       - name: Remove files
         run: rm charts/hcloud-ccm-networks/templates/*
