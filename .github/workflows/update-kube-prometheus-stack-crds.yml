@@ -32,7 +32,7 @@ jobs:
           path: kube-prometheus-stack-upstream
 
       - name: Copy CRDs
-        run: cp kube-prometheus-stack-upstream/charts/kube-prometheus-stack/crds/* charts/kube-prometheus-stack-crds/templates/
+        run: cp kube-prometheus-stack-upstream/charts/kube-prometheus-stack/charts/crds/crds/* charts/kube-prometheus-stack-crds/templates/
 
       - name: Remove kube-prometheus-stack upstream clone
         run: rm -r kube-prometheus-stack-upstream
