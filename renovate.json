@@ -9,7 +9,7 @@
   "packageRules": [
     {
       "description": "Automatically upgrade some dependencies",
-      "matchUpdateTypes": ["minor", "patch"],
+      "matchUpdateTypes": ["minor", "patch", "digest", "pinDigest"],
       "matchManagers": ["github-actions", "pre-commit"],
       "automerge": true
     },
