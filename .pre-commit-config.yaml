@@ -1,3 +1,11 @@
+ci:
+  autofix_commit_msg: |
+    chore: autofixes from pre-commit
+
+  autoupdate_commit_msg: "chore(deps): update pre-commit dependencies"
+  # We use renovate for this anyway
+  autoupdate_schedule: quarterly
+
 default_stages:
   - commit
 
@@ -10,7 +18,8 @@ repos:
   - repo: https://github.com/norwoodj/helm-docs
     rev: v1.11.0
     hooks:
-      - id: helm-docs
+      - id: helm-docs-built
+        additional_dependencies: ["github.com/norwoodj/helm-docs/cmd/helm-docs"]
 
   - repo: https://github.com/alessandrojcm/commitlint-pre-commit-hook
     rev: v9.5.0
