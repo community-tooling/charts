@@ -6,6 +6,7 @@
     "enabled": true
   },
   "reviewers": ["morremeyer", "ekeih"],
+  "gitIgnoredAuthors": ["66853113+pre-commit-ci[bot]@users.noreply.github.com"],
   "packageRules": [
     {
       "description": "Automatically upgrade some dependencies",
