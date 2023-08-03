@@ -11,7 +11,7 @@ default_stages:
 
 repos:
   - repo: https://github.com/pre-commit/mirrors-prettier
-    rev: v3.0.0
+    rev: v3.0.1
     hooks:
       - id: prettier
 
