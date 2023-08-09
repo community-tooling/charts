@@ -214,3 +214,6 @@ podDisruptionBudget:
 
 # -- Additional API resources to deploy
 additionalObjects: []
+
+# -- Additional sidecar containers
+additionalContainers: []
