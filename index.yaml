@@ -2,6 +2,18 @@ apiVersion: v1
 entries:
   backup:
   - apiVersion: v2
+    created: "2023-08-18T00:07:46.119431743Z"
+    description: Chart to back up PVCs with restic and regularly clean up the snapshots.
+    digest: 5e8a9c18987d8326d1369f075de16438b61054656943f264977799235909684e
+    maintainers:
+    - name: morremeyer
+    - name: ekeih
+    name: backup
+    type: application
+    urls:
+    - https://github.com/community-tooling/charts/releases/download/backup-3.2.3/backup-3.2.3.tgz
+    version: 3.2.3
+  - apiVersion: v2
     created: "2023-07-07T14:45:39.820738839Z"
     description: Chart to back up PVCs with restic and regularly clean up the snapshots.
     digest: 18f4883386058e521ac22b64f1cd7f33369978ade59dc409f70dcac19c6e65a5
@@ -224,4 +236,4 @@ entries:
     urls:
     - https://github.com/community-tooling/charts/releases/download/znc-1.0.2/znc-1.0.2.tgz
     version: 1.0.2
-generated: "2023-08-04T17:14:13.49922238Z"
+generated: "2023-08-18T00:07:46.119457143Z"
