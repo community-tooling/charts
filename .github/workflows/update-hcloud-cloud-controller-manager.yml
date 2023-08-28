@@ -24,7 +24,7 @@ jobs:
       - name: Download new files
         run: |
           # renovate datasource=github-releases depName=hetznercloud/hcloud-cloud-controller-manager
-          export VERSION="1.16.0"
+          export VERSION="1.17.2"
           curl -Lo charts/hcloud-ccm-networks/templates/ccm-networks.yaml https://github.com/hetznercloud/hcloud-cloud-controller-manager/releases/download/v${VERSION}/ccm-networks.yaml
           sed -i 's/--cluster-cidr=.*"/--cluster-cidr={{ .Values.clusterCidr }}"/g' charts/hcloud-ccm-networks/templates/ccm-networks.yaml
 
