@@ -24,7 +24,7 @@ jobs:
       - name: Download new files
         run: |
           # renovate datasource=github-releases depName=hetznercloud/csi-driver
-          export VERSION="2.3.2"
+          export VERSION="2.4.0"
           curl -Lo charts/hcloud-csi-driver/templates/hcloud-csi.yaml https://github.com/hetznercloud/csi-driver/raw/v${VERSION}/deploy/kubernetes/hcloud-csi.yml
           sed -i '/^provisioner: csi.hetzner.cloud/a reclaimPolicy: "{{ .Values.reclaimPolicy }}"' charts/hcloud-csi-driver/templates/hcloud-csi.yaml
 
