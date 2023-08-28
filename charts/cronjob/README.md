@@ -1,6 +1,6 @@
 # cronjob
 
-![Version: 3.1.4](https://img.shields.io/badge/Version-3.1.4-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 3.1.5](https://img.shields.io/badge/Version-3.1.5-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Run jobs on a schedule
 
@@ -77,7 +77,7 @@ configMap:
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"alpine"` |  |
-| image.tag | string | `"3.18.2"` |  |
+| image.tag | string | `"3.18.3"` |  |
 | imagePullSecrets | list | `[]` | pull secrets for the specified image |
 | initContainers | list | `[]` | initContainers to use. Requires a list of valid container specs. |
 | labels | object | `{}` |  |

@@ -1,6 +1,6 @@
 # mailtrain
 
-![Version: 2.0.0](https://img.shields.io/badge/Version-2.0.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 2.0.1](https://img.shields.io/badge/Version-2.0.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Runs mailtrain in your kubernetes cluster
 
@@ -25,8 +25,8 @@ See [the upgrading instructions](UPGRADING.md) for upgrades with breaking change
 | autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
-| image.repository | string | `"registry.git.mor.re/docker-images/mailtrain"` |  |
-| image.tag | string | `"1.24.1"` |  |
+| image.repository | string | `"ghcr.io/community-tooling/oci-images/mailtrain"` |  |
+| image.tag | string | `"1.20230702.1688298055"` |  |
 | imagePullSecrets | list | `[]` |  |
 | ingress.annotations | object | `{}` |  |
 | ingress.enabled | bool | `false` |  |

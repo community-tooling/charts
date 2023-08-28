@@ -1,6 +1,6 @@
 # kube-prometheus-stack-crds
 
-![Version: 48.3.1](https://img.shields.io/badge/Version-48.3.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 49.0.0](https://img.shields.io/badge/Version-49.0.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Deploys the kube-prometheus-stack CRDs to your cluster
 
@@ -29,4 +29,3 @@ If you use renovate, we recommend using the config below to group together updat
 | Name | Email | Url |
 | ---- | ------ | --- |
 | morremeyer |  |  |
-

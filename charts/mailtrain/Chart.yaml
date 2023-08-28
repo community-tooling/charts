@@ -2,6 +2,6 @@ apiVersion: v2
 name: mailtrain
 description: Runs mailtrain in your kubernetes cluster
 type: application
-version: 2.0.0
+version: 2.0.1
 maintainers:
   - name: morremeyer

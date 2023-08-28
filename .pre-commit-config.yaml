@@ -11,12 +11,12 @@ default_stages:
 
 repos:
   - repo: https://github.com/pre-commit/mirrors-prettier
-    rev: v3.0.1
+    rev: v3.0.2
     hooks:
       - id: prettier
 
   - repo: https://github.com/norwoodj/helm-docs
-    rev: v1.11.0
+    rev: v1.11.1
     hooks:
       - id: helm-docs-built
         additional_dependencies: ["github.com/norwoodj/helm-docs/cmd/helm-docs"]

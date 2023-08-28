@@ -13,9 +13,10 @@ jobs:
   update-crds:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3
+      - uses: actions/checkout@f43a0e5ff2bd294095638e18286ca9a3d1956744 # v3.6.0
         with:
           ref: ${{ github.head_ref }}
+          token: ${{ secrets.BOT_CHART_UPDATE_TOKEN }}
 
       - name: Remove files
         run: rm charts/hcloud-ccm-networks/templates/*
@@ -23,7 +24,7 @@ jobs:
       - name: Download new files
         run: |
           # renovate datasource=github-releases depName=hetznercloud/hcloud-cloud-controller-manager
-          export VERSION="1.16.0"
+          export VERSION="1.17.2"
           curl -Lo charts/hcloud-ccm-networks/templates/ccm-networks.yaml https://github.com/hetznercloud/hcloud-cloud-controller-manager/releases/download/v${VERSION}/ccm-networks.yaml
           sed -i 's/--cluster-cidr=.*"/--cluster-cidr={{ .Values.clusterCidr }}"/g' charts/hcloud-ccm-networks/templates/ccm-networks.yaml
 
