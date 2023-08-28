@@ -6,3 +6,4 @@ chart-dirs:
 excluded-charts:
   - hcloud-ccm-networks
   - hcloud-csi-driver
+  - mailtrain
