@@ -69,21 +69,13 @@
       "depNameTemplate": "go"
     },
     {
-      "description": "Upgrade helm chart version for kube-prometheus-stack-crds in lockstep with the actual chart",
-      "fileMatch": ["^charts/kube-prometheus-stack-crds/Chart.yaml$"],
-      "matchStrings": [
-        "# renovate datasource=(?<datasource>.*?)\\sregistryUrl=(?<registryUrl>.*?)\\sdepName=(?<depName>.*?)\\sversion: (?<currentValue>.*)"
-      ]
-    },
-    {
-      "description": "Upgrade helm chart version for hetzner ccm and csi-driver in lockstep with the upstream releases",
+      "description": "Upgrade helm chart version for generated charts lockstep with the upstream releases",
       "fileMatch": [
-        "^charts/hcloud-ccm-networks/Chart.yaml$",
-        ".github/workflows/update-hcloud-cloud-controller-manager.yml",
-        "^charts/hcloud-csi-driver/Chart.yaml$",
-        ".github/workflows/update-hcloud-csi-driver.yml"
+        "^charts/.*/Chart.yaml$",
+        ".github/workflows/update-.*\\.yml"
       ],
       "matchStrings": [
+        "# renovate datasource=(?<datasource>.*?)\\sregistryUrl=(?<registryUrl>.*?)\\sdepName=(?<depName>.*?)\\sversion: (?<currentValue>.*)",
         "# renovate datasource=(?<datasource>.*?)\\sdepName=(?<depName>.*?)\\sversion: (?<currentValue>.*)",
         "# renovate datasource=(?<datasource>.*?)\\sdepName=(?<depName>.*?)\\sappVersion: (?<currentValue>.*)",
         "# renovate datasource=(?<datasource>.*?)\\sdepName=(?<depName>.*?)\\s+export\\s+VERSION=\"(?<currentValue>.*)\""
