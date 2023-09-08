@@ -49,6 +49,11 @@
       "matchDatasources": ["github-tags"],
       "matchPackageNames": ["python/cpython"],
       "extractVersion": "^v(?<version>.*)$"
+    },
+    {
+      "description": "Strip v prefix from external-dns",
+      "matchPackageNames": ["kubernetes-sigs/external-dns"],
+      "extractVersion": "^v(?<version>.*)$"
     }
   ],
   "regexManagers": [
