@@ -50,6 +50,21 @@ entries:
     urls:
     - https://github.com/community-tooling/charts/releases/download/cronjob-3.1.4/cronjob-3.1.4.tgz
     version: 3.1.4
+  external-dns-crds:
+  - apiVersion: v2
+    appVersion: 0.13.5
+    created: "2023-09-08T14:58:31.998959042Z"
+    description: A Helm chart to deploy the DNSEndpoint CRD
+    digest: b6e86cd30a31fb68c47caf95188e823673bfd524cd491a30ae8be3e664f56990
+    maintainers:
+    - name: morremeyer
+    name: external-dns-crds
+    sources:
+    - https://github.com/kubernetes-sigs/external-dns
+    type: application
+    urls:
+    - https://github.com/community-tooling/charts/releases/download/external-dns-crds-0.13.5/external-dns-crds-0.13.5.tgz
+    version: 0.13.5
   generic:
   - apiVersion: v2
     created: "2023-08-28T20:27:38.611886594Z"
@@ -471,4 +486,4 @@ entries:
     urls:
     - https://github.com/community-tooling/charts/releases/download/znc-1.0.2/znc-1.0.2.tgz
     version: 1.0.2
-generated: "2023-09-05T13:30:19.788431398Z"
+generated: "2023-09-08T14:58:31.999172958Z"
