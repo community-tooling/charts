@@ -1,0 +1,15 @@
+apiVersion: v2
+name: external-dns-crds
+description: A Helm chart to deploy the DNSEndpoint CRD
+type: application
+sources:
+  - https://github.com/kubernetes-sigs/external-dns
+
+# renovate: datasource=github-releases depName=kubernetes-sigs/external-dns
+version: 0.13.5
+
+# renovate: datasource=github-releases depName=kubernetes-sigs/external-dns
+appVersion: 0.13.5
+
+maintainers:
+  - name: morremeyer
