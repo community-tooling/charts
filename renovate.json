@@ -75,10 +75,10 @@
         ".github/workflows/update-.*\\.yml"
       ],
       "matchStrings": [
-        "# renovate datasource=(?<datasource>.*?)\\sregistryUrl=(?<registryUrl>.*?)\\sdepName=(?<depName>.*?)\\sversion: (?<currentValue>.*)",
-        "# renovate datasource=(?<datasource>.*?)\\sdepName=(?<depName>.*?)\\sversion: (?<currentValue>.*)",
-        "# renovate datasource=(?<datasource>.*?)\\sdepName=(?<depName>.*?)\\sappVersion: (?<currentValue>.*)",
-        "# renovate datasource=(?<datasource>.*?)\\sdepName=(?<depName>.*?)\\s+export\\s+VERSION=\"(?<currentValue>.*)\""
+        "# renovate: datasource=(?<datasource>.*?)\\sregistryUrl=(?<registryUrl>.*?)\\sdepName=(?<depName>.*?)\\sversion: (?<currentValue>.*)",
+        "# renovate: datasource=(?<datasource>.*?)\\sdepName=(?<depName>.*?)\\sversion: (?<currentValue>.*)",
+        "# renovate: datasource=(?<datasource>.*?)\\sdepName=(?<depName>.*?)\\sappVersion: (?<currentValue>.*)",
+        "# renovate: datasource=(?<datasource>.*?)\\sdepName=(?<depName>.*?)\\s+export\\s+VERSION=\"(?<currentValue>.*)\""
       ]
     },
     {
