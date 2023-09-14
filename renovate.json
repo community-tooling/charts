@@ -24,7 +24,7 @@
       "automerge": true
     },
     {
-      "description": "Automerge all kube-prometheus-stack updates for the CRD chart",
+      "description": "Automerge all chart updates for CRD charts and charts that mostly package upstream yaml files",
       "matchPackageNames": [
         "kube-prometheus-stack",
         "hetznercloud/hcloud-cloud-controller-manager",
