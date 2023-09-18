@@ -9,9 +9,9 @@ sources:
 type: application
 
 # renovate: datasource=github-releases depName=hetznercloud/hcloud-cloud-controller-manager
-version: 1.17.2
+version: 1.18.0
 # renovate: datasource=github-releases depName=hetznercloud/hcloud-cloud-controller-manager
-appVersion: 1.17.2
+appVersion: 1.18.0
 
 maintainers:
   - name: morremeyer
