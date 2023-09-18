@@ -64,11 +64,11 @@ spec:
             - "/bin/hcloud-cloud-controller-manager"
             - "--allow-untagged-cloud"
             - "--cloud-provider=hcloud"
-            - "--leader-elect=false"
             - "--route-reconciliation-period=30s"
             - "--webhook-secure-port=0"
             - "--allocate-node-cidrs=true"
             - "--cluster-cidr={{ .Values.clusterCidr }}"
+            - "--leader-elect=false"
           env:
             - name: HCLOUD_TOKEN
               valueFrom:
@@ -84,7 +84,7 @@ spec:
                 secretKeyRef:
                   key: network
                   name: hcloud
-          image: hetznercloud/hcloud-cloud-controller-manager:v1.17.2 # x-release-please-version
+          image: hetznercloud/hcloud-cloud-controller-manager:v1.18.0 # x-release-please-version
           ports:
             - name: metrics
               containerPort: 8233
