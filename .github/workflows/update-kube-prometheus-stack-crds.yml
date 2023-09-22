@@ -12,7 +12,7 @@ jobs:
   update-crds:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
+      - uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 # v4.1.0
         with:
           ref: ${{ github.head_ref }}
           token: ${{ secrets.BOT_CHART_UPDATE_TOKEN }}
@@ -26,7 +26,7 @@ jobs:
           echo "CHECKOUT_REF=$(sed '/^version:/!d;s/version: //' charts/kube-prometheus-stack-crds/Chart.yaml)" >> $GITHUB_OUTPUT
 
       - name: Check out prometheus-community/helm-charts
-        uses: actions/checkout@3df4ab11eba7bda6032a0b82a6bb43b11571feac # v4.0.0
+        uses: actions/checkout@8ade135a41bc03ea155e62e844d188df1ea18608 # v4.1.0
         with:
           repository: prometheus-community/helm-charts
           ref: "kube-prometheus-stack-${{ steps.chart_version.outputs.CHECKOUT_REF }}"
