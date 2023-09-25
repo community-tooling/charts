@@ -7,4 +7,4 @@ excluded-charts:
   - hcloud-ccm-networks
   - hcloud-csi-driver
   - mailtrain
-  - kube-prometheus-stack-crds # Follow https://github.com/helm/community/pull/312 to see when we could switch to SSA. 
+  - kube-prometheus-stack-crds # Follow https://github.com/helm/community/pull/312 to see when we could switch to SSA.
