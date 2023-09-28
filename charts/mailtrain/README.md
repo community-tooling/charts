@@ -26,7 +26,7 @@ See [the upgrading instructions](UPGRADING.md) for upgrades with breaking change
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"ghcr.io/community-tooling/oci-images/mailtrain"` |  |
-| image.tag | string | `"1.20230702.1688298055"` |  |
+| image.tag | string | `"1.20230928.1695861118"` |  |
 | imagePullSecrets | list | `[]` |  |
 | ingress.annotations | object | `{}` |  |
 | ingress.enabled | bool | `false` |  |
