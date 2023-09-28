@@ -13,7 +13,7 @@ replicaCount: 1
 image:
   repository: ghcr.io/community-tooling/oci-images/mailtrain
   pullPolicy: IfNotPresent
-  tag: "1.20230702.1688298055"
+  tag: "1.20230928.1695861118"
 
 imagePullSecrets: []
 nameOverride: ""
