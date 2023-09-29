@@ -1,0 +1,51 @@
+defaultNetworkPolicies:
+  default-deny-all-but-dns:
+    spec:
+      podSelector: {}
+      policyTypes:
+        - Ingress
+        - Egress
+      egress:
+        - ports:
+            - port: 53
+              protocol: UDP
+          to:
+            - namespaceSelector:
+                matchLabels:
+                  kubernetes.io/metadata.name: kube-system
+              podSelector:
+                matchLabels:
+                  k8s-app: kube-dns
+
+  allow-namespace:
+    spec:
+      ingress:
+        - from:
+            - podSelector: {}
+      podSelector: {}
+      policyTypes:
+        - Ingress
+
+namespaces:
+  test:
+    networkPolicies:
+      backend:
+        spec:
+          podSelector:
+            matchLabels:
+              app.kubernetes.io/instance: backend
+              app.kubernetes.io/name: generic
+          policyTypes:
+            - Egress
+            - Ingress
+          ingress:
+            - ports:
+                - port: 8080
+              from:
+                - namespaceSelector:
+                    matchLabels:
+                      kubernetes.io/metadata.name: ingress
+                  podSelector:
+                    matchLabels:
+                      app.kubernetes.io/name: traefik
+                      app.kubernetes.io/instance: traefik-ingress

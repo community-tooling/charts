@@ -1,0 +1,25 @@
+{{- $labels := include "namespaces.labels" . -}}
+{{ if not .Values.disableNetworkPolicies }}
+{{- range $namespaceName, $namespaceValues := $.Values.namespaces }}
+{{- range $networkPolicyName, $networkPolicy := $namespaceValues.ciliumNetworkPolicies }}
+---
+apiVersion: cilium.io/v2
+kind: CiliumNetworkPolicy
+metadata:
+  name: {{ $networkPolicyName }}
+  namespace: {{ $namespaceName }}
+  labels:
+    {{- $labels | nindent 4 }}
+{{- if $.Values.keepNetworkPolicies }}
+  annotations:
+    helm.sh/resource-policy: keep
+{{- end }}
+spec:
+  {{- toYaml $networkPolicy.spec | nindent 2}}
+{{- with $networkPolicy.specs }}
+specs:
+  {{- toYaml . | nindent 2}}
+{{- end -}}
+{{- end -}}
+{{- end -}}
+{{- end -}}
