@@ -40,5 +40,9 @@ jobs:
         uses: helm/kind-action@dda0770415bac9fc20092cacbc54aa298604d140 # v1.8.0
         if: steps.list-changed.outputs.changed == 'true'
 
+      - name: Install CRDs
+        if: steps.list-changed.outputs.changed == 'true'
+        run: ./ci/install-crds.sh
+
       - name: Run chart-testing (install)
         run: ct install --config ct.yaml
