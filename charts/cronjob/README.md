@@ -77,7 +77,7 @@ configMap:
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"alpine"` |  |
-| image.tag | string | `"3.18.3"` |  |
+| image.tag | string | `"3.18.4"` |  |
 | imagePullSecrets | list | `[]` | pull secrets for the specified image |
 | initContainers | list | `[]` | initContainers to use. Requires a list of valid container specs. |
 | labels | object | `{}` |  |
