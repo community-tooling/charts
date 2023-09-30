@@ -8,11 +8,11 @@ sources:
 
 type: application
 
-# renovate: datasource=github-releases depName=hetznercloud/csi-driver
-version: 2.5.1
-# renovate: datasource=github-releases depName=hetznercloud/csi-driver
+version: 3.0.0
 appVersion: 2.5.1
 
 maintainers:
   - name: morremeyer
   - name: ekeih
+
+deprecated: true
