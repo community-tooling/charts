@@ -7,6 +7,8 @@
 :exclamation: This Helm Chart is deprecated!**
 
 There is now an upstream chart, so this chart will no longer be updated.
+Old versions be still be available, but the source will be removed after 2023-12-31.
+
 Please migrate to the upstream chart at [hetznercloud/csi-driver](https://github.com/hetznercloud/csi-driver/tree/main/chart).
 
 To use the default values from this chart, use the following values with `hetznercloud/csi-driver`:
