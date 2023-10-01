@@ -1,19 +1,27 @@
 # hcloud-csi-driver
 
-![Version: 2.5.1](https://img.shields.io/badge/Version-2.5.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2.5.1](https://img.shields.io/badge/AppVersion-2.5.1-informational?style=flat-square)
+![Version: 3.0.0](https://img.shields.io/badge/Version-3.0.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square) ![AppVersion: 2.5.1](https://img.shields.io/badge/AppVersion-2.5.1-informational?style=flat-square)
 
-Deploys the hcloud-csi-driver
+> **:exclamation: This Helm Chart is deprecated!**
 
-**Homepage:** <https://github.com/morremeyer/charts>
-## Maintainers
+:exclamation: This Helm Chart is deprecated!**
 
-| Name | Email | Url |
-| ---- | ------ | --- |
-| morremeyer |  |  |
-| ekeih |  |  |
-## Source Code
+There is now an upstream chart, so this chart will no longer be updated.
+Old versions be still be available, but the source will be removed after 2023-12-31.
 
-* <https://github.com/hetznercloud/csi-driver>
+Please migrate to the upstream chart at [hetznercloud/csi-driver](https://github.com/hetznercloud/csi-driver/tree/main/chart).
+
+To use the default values from this chart, use the following values with `hetznercloud/csi-driver`:
+
+```yaml
+storageClasses:
+  - name: hcloud-volumes
+    defaultStorageClass: true
+    reclaimPolicy: Retain
+
+metrics:
+  enabled: true
+```
 
 ## Values
 
