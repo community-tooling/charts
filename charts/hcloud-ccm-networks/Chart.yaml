@@ -8,11 +8,11 @@ sources:
 
 type: application
 
-# renovate: datasource=github-releases depName=hetznercloud/hcloud-cloud-controller-manager
-version: 1.18.0
-# renovate: datasource=github-releases depName=hetznercloud/hcloud-cloud-controller-manager
+version: 2.0.0
 appVersion: 1.18.0
 
 maintainers:
   - name: morremeyer
   - name: ekeih
+
+deprecated: true

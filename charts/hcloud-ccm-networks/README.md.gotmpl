@@ -1,13 +1,13 @@
 {{ template "chart.header" . }}
-{{ template "chart.deprecationWarning" . }}
 {{ template "chart.badgesSection" . }}
 
-{{ template "chart.description" . }}
+{{ template "chart.deprecationWarning" . }}
 
-{{ template "chart.homepageLine" . }}
-{{ template "chart.maintainersSection" . }}
-{{ template "chart.sourcesSection" . }}
+:exclamation: This Helm Chart is deprecated!**
 
-{{ template "chart.requirementsSection" . }}
+There is now an upstream chart, so this chart will no longer be updated.
+Old versions be still be available, but the source will be removed after 2023-12-31.
+
+Please migrate to the upstream chart at [hetznercloud/hcloud-cloud-controller-manager](https://github.com/hetznercloud/hcloud-cloud-controller-manager/tree/main/chart).
 
 {{ template "chart.valuesSection" . }}
