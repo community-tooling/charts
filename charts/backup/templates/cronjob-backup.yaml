@@ -80,7 +80,8 @@ spec:
               - --repo
               - {{ .Values.repo }}
               {{- range .Values.exclude }}
-              - --exclude "/data{{ . }}"
+              - --exclude
+              - "/data{{ . }}"
               {{- end }}
               - backup
               - /data
