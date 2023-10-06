@@ -79,6 +79,9 @@ spec:
               {{- end }}
               - --repo
               - {{ .Values.repo }}
+              {{- range .Values.exclude }}
+              - --exclude "/data{{ . }}"
+              {{- end }}
               - backup
               - /data
             {{- end }}

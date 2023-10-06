@@ -1,0 +1,7 @@
+# The real default values.yaml fails because following values are not set.
+repo: /tmp/repo
+pvc: dummy
+
+exclude:
+  - /previews
+  - /tmp

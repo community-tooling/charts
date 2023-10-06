@@ -5,6 +5,9 @@ pvc: ~
 # -- compression mode (only available for repository format version 2), one of (auto|off|max)
 compression: ~
 
+# -- List of excludes to pass to restic with the --exclude argument. Only supports absolute paths from the PVC root. Paths are relative to the PVC mount point. If your PVC is mounted at `/mnt/data/` and you want to exclude `/mnt/data/previews`, specify `/previews`.
+exclude: []
+
 # -- The secret that all containers load their environment from. See https://restic.readthedocs.io/en/latest/040_backup.html#environment-variables for variables.
 secretName: "backup-secret"
 
