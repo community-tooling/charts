@@ -566,6 +566,18 @@ entries:
     version: 47.3.0
   mailtrain:
   - apiVersion: v2
+    created: "2023-10-06T10:20:53.585826956Z"
+    deprecated: true
+    description: Runs mailtrain in your kubernetes cluster
+    digest: 1a41911e9bad49f2197c21551866a9eb9c3ab811a0c8f8e874e7d8e07c1cb21f
+    maintainers:
+    - name: morremeyer
+    name: mailtrain
+    type: application
+    urls:
+    - https://github.com/community-tooling/charts/releases/download/mailtrain-3.0.0/mailtrain-3.0.0.tgz
+    version: 3.0.0
+  - apiVersion: v2
     created: "2023-08-28T19:30:45.426889069Z"
     description: Runs mailtrain in your kubernetes cluster
     digest: f3606bacdee6ca6cc393ec3e93debe291b11df380b98636e157461796b7e68db
@@ -627,4 +639,4 @@ entries:
     urls:
     - https://github.com/community-tooling/charts/releases/download/znc-1.0.2/znc-1.0.2.tgz
     version: 1.0.2
-generated: "2023-10-05T16:31:28.274341324Z"
+generated: "2023-10-06T10:20:53.585915756Z"
