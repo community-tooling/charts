@@ -1,18 +1,13 @@
 # mailtrain
 
-![Version: 2.0.1](https://img.shields.io/badge/Version-2.0.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 3.0.0](https://img.shields.io/badge/Version-3.0.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
-Runs mailtrain in your kubernetes cluster
+> **:exclamation: This Helm Chart is deprecated!**
 
-## Maintainers
+:exclamation: This Helm Chart is deprecated!**
 
-| Name | Email | Url |
-| ---- | ------ | --- |
-| morremeyer |  |  |
-
-## Upgrading
-
-See [the upgrading instructions](UPGRADING.md) for upgrades with breaking changes.
+This chart will no longer be updated.
+Old versions be still be available, but the source will be removed after 2023-12-31.
 
 ## Values
 

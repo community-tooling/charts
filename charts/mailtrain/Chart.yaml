@@ -2,6 +2,7 @@ apiVersion: v2
 name: mailtrain
 description: Runs mailtrain in your kubernetes cluster
 type: application
-version: 2.0.1
+version: 3.0.0
 maintainers:
   - name: morremeyer
+deprecated: true
