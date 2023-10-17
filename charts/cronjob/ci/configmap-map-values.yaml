@@ -1,0 +1,8 @@
+configMap:
+  enabled: true
+  data:
+    test:
+      mapKey1: Hello
+      mapKey2:
+        subKey1: test
+        subKey2: This should still work
