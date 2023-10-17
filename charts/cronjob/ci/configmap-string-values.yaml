@@ -1,0 +1,4 @@
+configMap:
+  enabled: true
+  data:
+    test: This is a string
