@@ -174,7 +174,7 @@ spec:
       {{- with .Values.tolerations }}
       tolerations: {{- toYaml . | nindent 8 }}
       {{- end }}
-      {{- if or .Values.persistence.enabled .Values.additionalVolumes .Values.configMap.mountPath .Values.configMap.mountFile }}
+      {{- if or .Values.persistence.enabled .Values.additionalVolumes .Values.configMap.mountPath .Values.configMap.mountFiles }}
       volumes:
         {{- if .Values.persistence.enabled }}
         - name: data

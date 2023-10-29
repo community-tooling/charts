@@ -1,0 +1,5 @@
+configMap:
+  enabled: true
+  mountFiles:
+    - subPath: file.conf
+      mountPath: /file.conf
