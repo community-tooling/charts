@@ -1,0 +1,12 @@
+name: Validate renovate config - Skip
+
+on:
+  pull_request:
+    paths-ignore:
+      - renovate.json
+
+jobs:
+  renovate-validate:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "renovate.json not changed, skipping"
