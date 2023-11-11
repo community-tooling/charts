@@ -1,34 +1,29 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": ["config:recommended"],
-  "platformAutomerge": true,
   "pre-commit": {
     "enabled": true
+  },
+  "automerge": true,
+  "major": {
+    "automerge": false
   },
   "reviewers": ["morremeyer", "ekeih"],
   "gitIgnoredAuthors": ["66853113+pre-commit-ci[bot]@users.noreply.github.com"],
   "packageRules": [
     {
-      "description": "Automatically upgrade some dependencies",
-      "matchUpdateTypes": ["minor", "patch", "digest", "pinDigest"],
-      "matchManagers": ["github-actions", "pre-commit"],
-      "automerge": true
-    },
-    {
       "description": "Automatically upgrade 'version' key dependencies in GitHub Actions",
       "matchUpdateTypes": ["minor", "patch"],
       "matchManagers": ["regex"],
-      "matchPaths": [
-        "(^workflow-templates|\\.github/workflows)/[^/]+\\.ya?ml$"
-      ],
-      "automerge": true
+      "matchPaths": ["(^workflow-templates|\\.github/workflows)/[^/]+\\.ya?ml$"]
     },
     {
       "description": "Automerge all chart updates for CRD charts and charts that mostly package upstream yaml files",
       "matchPackageNames": [
         "kube-prometheus-stack",
         "hetznercloud/hcloud-cloud-controller-manager",
-        "hetznercloud/csi-driver"
+        "hetznercloud/csi-driver",
+        "external-dns"
       ],
       "automerge": true
     },
@@ -56,7 +51,7 @@
       "extractVersion": "^v(?<version>.*)$"
     }
   ],
-  "regexManagers": [
+  "customManagers": [
     {
       "description": "Upgrade arbitrary dependencies with the key 'version' in a GitHub workflow file",
       "fileMatch": ["(^workflow-templates|\\.github/workflows)/[^/]+\\.ya?ml$"],
