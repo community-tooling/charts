@@ -62,8 +62,7 @@
       "fileMatch": ["(^workflow-templates|\\.github/workflows)/[^/]+\\.ya?ml$"],
       "matchStrings": [
         "# renovate: datasource=(?<datasource>.*?)\\sdepName=(?<depName>.*?)\\s*version:\\s*\"?(?<currentValue>.*)\"?"
-      ],
-      "automerge": true
+      ]
     },
     {
       "description": "Upgrade go version in a GitHub workflow",
@@ -72,8 +71,7 @@
         "# renovate: go-version\\s*go-version:\\s*\"?(?<currentValue>.*)\"?"
       ],
       "datasourceTemplate": "golang-version",
-      "depNameTemplate": "go",
-      "automerge": true
+      "depNameTemplate": "go"
     },
     {
       "description": "Upgrade helm chart version for generated charts lockstep with the upstream releases",
@@ -86,24 +84,21 @@
         "# renovate: datasource=(?<datasource>.*?)\\sdepName=(?<depName>.*?)\\sversion: (?<currentValue>.*)",
         "# renovate: datasource=(?<datasource>.*?)\\sdepName=(?<depName>.*?)\\sappVersion: (?<currentValue>.*)",
         "# renovate: datasource=(?<datasource>.*?)\\sdepName=(?<depName>.*?)\\s+export\\s+VERSION=\"(?<currentValue>.*)\""
-      ],
-      "automerge": true
+      ]
     },
     {
       "description": "Upgrade helm-docs version in a GitHub workflow",
       "fileMatch": ["(^workflow-templates|\\.github/workflows)/[^/]+\\.ya?ml$"],
       "matchStrings": [
         "# renovate: datasource=(?<datasource>.*?)\\sdepName=(?<depName>.*?)\\s*run: go install github.com/norwoodj/helm-docs/cmd/helm-docs@(?<currentValue>.*)"
-      ],
-      "automerge": true
+      ]
     },
     {
       "description": "Upgrade python-version version",
       "fileMatch": ["(^workflow-templates|\\.github/workflows)/[^/]+\\.ya?ml$"],
       "matchStrings": ["python-version:\\s(?<currentValue>.*)"],
       "datasourceTemplate": "github-tags",
-      "depNameTemplate": "python/cpython",
-      "automerge": true
+      "depNameTemplate": "python/cpython"
     }
   ]
 }
