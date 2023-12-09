@@ -1,7 +1,7 @@
 image:
   repository: alpine
   pullPolicy: IfNotPresent
-  tag: "3.18.4"
+  tag: "3.19.0"
 
 # -- The number of successful finished jobs to retain.
 successfulJobsHistoryLimit: ~
