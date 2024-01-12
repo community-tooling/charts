@@ -3,7 +3,7 @@ name: kube-prometheus-stack-crds
 description: Deploys the kube-prometheus-stack CRDs to your cluster
 type: application
 # renovate: datasource=helm registryUrl=https://prometheus-community.github.io/helm-charts depName=kube-prometheus-stack
-version: 55.8.0
+version: 55.8.1
 maintainers:
   - name: morremeyer
   - name: ekeih
