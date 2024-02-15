@@ -4,7 +4,7 @@ replicaCount: 1
 image:
   repository: nginx
   pullPolicy: IfNotPresent
-  tag: "1.25.3"
+  tag: "1.25.4"
 
 restartPolicy: Always
 
