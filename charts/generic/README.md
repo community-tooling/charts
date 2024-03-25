@@ -1,6 +1,6 @@
 # generic
 
-![Version: 7.3.2](https://img.shields.io/badge/Version-7.3.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 7.4.0](https://img.shields.io/badge/Version-7.4.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 A chart for generic applications. Use this if you need to deploy something without wanting to build a fully fledged new helm chart.
 
@@ -169,3 +169,4 @@ additionalObjects:
 | startupProbe | string | `nil` | Configure a startup probe for the pod |
 | terminationGracePeriodSeconds | int | `30` | How long the pod may take to terminate before it is killed by the kubelet |
 | tolerations | list | `[]` |  |
+| topologySpreadConstraints | list | `[]` | [Topology Spread Constraints](https://kubernetes.io/docs/concepts/scheduling-eviction/topology-spread-constraints/) |
