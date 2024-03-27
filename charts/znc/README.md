@@ -53,7 +53,7 @@ docker run --rm -it --entrypoint /bin/sh znc:1.8.2
 | fullnameOverride | string | `""` |  |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"znc"` |  |
-| image.tag | string | `"1.8.2"` |  |
+| image.tag | string | `"1.9.0"` |  |
 | imagePullSecrets | list | `[]` |  |
 | ingress.annotations | object | `{}` |  |
 | ingress.className | string | `""` | The ingressClassName for this Ingress resource |
