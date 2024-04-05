@@ -1,6 +1,6 @@
 # generic
 
-![Version: 7.4.0](https://img.shields.io/badge/Version-7.4.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 7.5.0](https://img.shields.io/badge/Version-7.5.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 A chart for generic applications. Use this if you need to deploy something without wanting to build a fully fledged new helm chart.
 
@@ -122,7 +122,7 @@ additionalObjects:
 | ingress.hosts[0].paths[0].servicePortName | string | `"http"` | Name of the target port on the service |
 | ingress.tls | list | `[]` |  |
 | initContainers | list | `[]` |  |
-| labels | object | `{}` |  |
+| labels | object | `{}` | Labels to add to all resources |
 | livenessProbe.httpGet | object | `{"path":"/","port":"http"}` | Set `httpGet: ~` to deactivate |
 | nameOverride | string | `""` |  |
 | nodeSelector | object | `{}` |  |
