@@ -68,6 +68,7 @@ additionalVolumeMounts: []
 
 additionalVolumes: []
 
+# -- Labels to add to all resources
 labels: {}
 
 annotations: {}

@@ -35,11 +35,11 @@ Common labels
 */}}
 {{- define "generic.labels" -}}
 helm.sh/chart: {{ include "generic.chart" . }}
-{{ include "generic.selectorLabels" . }}
-{{- if .Chart.AppVersion }}
-app.kubernetes.io/version: {{ .Chart.AppVersion | quote }}
-{{- end }}
 app.kubernetes.io/managed-by: {{ .Release.Service }}
+{{ include "generic.selectorLabels" . }}
+{{- with .Values.labels -}}
+{{- toYaml . }}
+{{- end }}
 {{- end }}
 
 {{/*
@@ -48,6 +48,7 @@ Selector labels
 {{- define "generic.selectorLabels" -}}
 app.kubernetes.io/name: {{ include "generic.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
+app.kubernetes.io/version: {{ .Values.image.tag | quote }}
 {{- end }}
 
 {{/*
