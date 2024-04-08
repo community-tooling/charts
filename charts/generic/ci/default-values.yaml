@@ -1,0 +1,3 @@
+labels:
+  # This is here to verify that we're correctly adding newlines everywhere
+  some-private-label: some-interesting-value
