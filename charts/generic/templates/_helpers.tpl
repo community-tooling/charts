@@ -52,6 +52,16 @@ app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
 {{/*
+Pod labels
+*/}}
+{{- define "generic.podLabels" -}}
+{{ include "generic.selectorLabels" . }}
+{{- with .Values.podLabels }}
+{{ toYaml . }}
+{{- end }}
+{{- end }}
+
+{{/*
 Create the name of the service account to use
 */}}
 {{- define "generic.serviceAccountName" -}}
