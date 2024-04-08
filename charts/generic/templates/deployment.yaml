@@ -32,10 +32,7 @@ spec:
         {{- end }}
       {{- end }}
       labels:
-        {{- include "generic.selectorLabels" . | nindent 8 }}
-        {{- with .Values.podLabels }}
-        {{- toYaml . | nindent 8 }}
-        {{- end }}
+        {{- include "generic.podLabels" . | nindent 8 }}
     spec:
       restartPolicy: {{ .Values.restartPolicy }}
       {{- with .Values.imagePullSecrets }}
@@ -146,7 +143,7 @@ spec:
               podAffinityTerm:
                 labelSelector:
                   matchLabels:
-                    {{- include "generic.labels" . | nindent 20 }}
+                    {{- include "generic.podLabels" . | nindent 20 }}
                 topologyKey: kubernetes.io/hostname
       {{- end }}
       {{- if .Values.enableZoneSpreadPodAntiAffinity }}
@@ -154,7 +151,7 @@ spec:
               podAffinityTerm:
                 labelSelector:
                   matchLabels:
-                    {{- include "generic.labels" . | nindent 20 }}
+                    {{- include "generic.podLabels" . | nindent 20 }}
                 topologyKey: topology.kubernetes.io/zone
       {{- end }}
       {{- with .Values.additionalPreferredPodAntiAffinity }}
