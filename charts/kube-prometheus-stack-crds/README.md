@@ -1,6 +1,6 @@
 # kube-prometheus-stack-crds
 
-![Version: 58.1.2](https://img.shields.io/badge/Version-58.1.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 58.1.3](https://img.shields.io/badge/Version-58.1.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Deploys the kube-prometheus-stack CRDs to your cluster
 
