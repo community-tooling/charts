@@ -20,10 +20,9 @@
     {
       "description": "Automerge all chart updates for CRD charts and charts that mostly package upstream yaml files",
       "matchPackageNames": [
+        "external-dns",
         "kube-prometheus-stack",
-        "hetznercloud/hcloud-cloud-controller-manager",
-        "hetznercloud/csi-driver",
-        "external-dns"
+        "rancher/system-upgrade-controller"
       ],
       "automerge": true
     },
@@ -34,20 +33,16 @@
       "pinDigests": true
     },
     {
-      "matchPackageNames": [
-        "hetznercloud/hcloud-cloud-controller-manager",
-        "hetznercloud/csi-driver"
-      ],
-      "extractVersion": "^v(?<version>.*)$"
-    },
-    {
       "matchDatasources": ["github-tags"],
       "matchPackageNames": ["python/cpython"],
       "extractVersion": "^v(?<version>.*)$"
     },
     {
-      "description": "Strip v prefix from external-dns",
-      "matchPackageNames": ["kubernetes-sigs/external-dns"],
+      "description": "Strip v prefix",
+      "matchPackageNames": [
+        "kubernetes-sigs/external-dns",
+        "rancher/system-upgrade-controller"
+      ],
       "extractVersion": "^v(?<version>.*)$"
     }
   ],

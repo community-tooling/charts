@@ -1,0 +1,37 @@
+name: Update system-upgrade-controller-crds
+
+on:
+  pull_request:
+    paths:
+      - charts/system-upgrade-controller-crds/Chart.yaml
+      - .github/workflows/update-system-upgrade-controller-crds.yml
+
+permissions:
+  contents: write
+
+jobs:
+  update-crds:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+        with:
+          ref: ${{ github.head_ref }}
+          token: ${{ secrets.BOT_CHART_UPDATE_TOKEN }}
+
+      - name: Remove files
+        run: rm charts/system-upgrade-controller-crds/templates/*
+
+      - name: Download new files
+        run: |
+          # renovate: datasource=github-releases depName=rancher/system-upgrade-controller
+          export VERSION="0.13.1"
+
+          curl --silent -Lo charts/system-upgrade-controller-crds/templates/crd.yaml https://github.com/rancher/system-upgrade-controller/releases/download/v${VERSION}/crd.yaml
+
+      - name: Commit updated files
+        uses: EndBug/add-and-commit@a94899bca583c204427a224a7af87c02f9b325d5 # v9.1.4
+        with:
+          message: "chore(deps): update system-upgrade-controller-crds"
+          pull: "--rebase --autostash"
+          author_name: Community Tooling Bot
+          author_email: community-tooling@maurice-meyer.de

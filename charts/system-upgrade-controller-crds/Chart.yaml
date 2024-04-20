@@ -1,0 +1,15 @@
+apiVersion: v2
+name: system-upgrade-controller-crds
+description: A Helm chart to deploy the system-upgrade-controller CRDs
+type: application
+sources:
+  - https://github.com/rancher/system-upgrade-controller
+
+# renovate: datasource=github-releases depName=rancher/system-upgrade-controller
+version: 0.13.1
+
+# renovate: datasource=github-releases depName=rancher/system-upgrade-controller
+appVersion: 0.13.1
+
+maintainers:
+  - name: ekeih
