@@ -1,6 +1,6 @@
 # cronjob
 
-![Version: 3.3.0](https://img.shields.io/badge/Version-3.3.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 3.4.0](https://img.shields.io/badge/Version-3.4.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Run jobs on a schedule
 
@@ -67,6 +67,7 @@ configMap:
 | apiAccess.rules | list | `[]` | Rules for the API access of the ServiceAccount used by the CronJob pods. Check [the documentation](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#role-and-clusterrole) for more information |
 | args | list | `[]` | arguments to pass to the command or binary being run |
 | command | list | `[]` | the command or binary to run |
+| concurrencyPolicy | string | `"Allow"` | The [concurrencyPolicy](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/#concurrency-policy) for the CronJob |
 | configMap.data | object | `{}` | The data for the ConfigMap. Both keys and values need to be strings. |
 | configMap.enabled | bool | `false` | If a ConfigMap with configurable values should be created |
 | configMap.mountFiles | list | `[]` | Mounting of individual keys in the ConfigMap as files |

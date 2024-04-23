@@ -20,6 +20,7 @@ spec:
   failedJobsHistoryLimit: {{ . }}
   {{- end }}
   schedule: "{{ .Values.schedule }}"
+  concurrencyPolicy: "{{ .Values.concurrencyPolicy }}"
   jobTemplate:
     spec:
       template:
