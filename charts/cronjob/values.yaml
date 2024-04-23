@@ -93,6 +93,9 @@ persistence:
   # -- Set a storageClassName, otherwise the default class is used.
   storageClassName: ~
 
+  # -- To use an existing PersistentVolume resource, set its name here
+  existingVolume: ""
+
 # -- requests and limits for the container
 resources: {}
 
