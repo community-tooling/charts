@@ -1,6 +1,6 @@
 # cronjob
 
-![Version: 3.2.2](https://img.shields.io/badge/Version-3.2.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 3.3.0](https://img.shields.io/badge/Version-3.3.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Run jobs on a schedule
 
@@ -97,4 +97,5 @@ configMap:
 | serviceAccount.create | bool | `true` | Specifies whether a service account should be created |
 | serviceAccount.name | string | `""` | The name of the service account to use. If not set and create is true, a name is generated using the fullname template. |
 | successfulJobsHistoryLimit | string | `nil` | The number of successful finished jobs to retain. |
+| suspend | bool | `false` | if the job should be suspended |
 | tolerations | list | `[]` | List of tolerations for the pod |
