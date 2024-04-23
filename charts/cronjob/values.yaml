@@ -3,6 +3,9 @@ image:
   pullPolicy: IfNotPresent
   tag: "3.19.1"
 
+# -- The [concurrencyPolicy](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/#concurrency-policy) for the CronJob
+concurrencyPolicy: "Allow"
+
 # -- The number of successful finished jobs to retain.
 successfulJobsHistoryLimit: ~
 
