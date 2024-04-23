@@ -12,6 +12,9 @@ failedJobsHistoryLimit: ~
 # -- schedule for the cronjob.
 schedule: "17 3 * * *"
 
+# -- if the job should be suspended
+suspend: false
+
 # -- if the Job should restart when the command fails
 restartPolicy: OnFailure
 
