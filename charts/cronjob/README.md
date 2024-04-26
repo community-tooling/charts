@@ -1,6 +1,6 @@
 # cronjob
 
-![Version: 3.4.0](https://img.shields.io/badge/Version-3.4.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 3.5.0](https://img.shields.io/badge/Version-3.5.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Run jobs on a schedule
 
@@ -85,6 +85,7 @@ configMap:
 | nameOverride | string | `""` |  |
 | nodeSelector | object | `{}` | nodeSelector object for the pod |
 | persistence.enabled | bool | `false` |  |
+| persistence.existingVolume | string | `""` | To use an existing PersistentVolume resource, set its name here |
 | persistence.mountPath | string | `"/data"` | Where the persistent volume is mounted |
 | persistence.storage | string | `"1Gi"` | the amount of space to require for the volume |
 | persistence.storageClassName | string | `nil` | Set a storageClassName, otherwise the default class is used. |
