@@ -2,7 +2,7 @@ apiVersion: v2
 name: znc
 description: Installs ZNC (an IRC bouncer) to your cluster
 type: application
-version: 1.0.2
+version: 2.0.0
 maintainers:
   - name: morremeyer
     email: charts@mor.re
