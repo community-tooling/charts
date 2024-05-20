@@ -36,7 +36,7 @@ Common labels
 {{- define "generic.labels" -}}
 helm.sh/chart: {{ include "generic.chart" . }}
 app.kubernetes.io/managed-by: {{ .Release.Service }}
-app.kubernetes.io/version: {{ .Values.image.tag | mustRegexFind "[a-zA-Z0-9-_.]+$" | trunc 63 }}
+app.kubernetes.io/version: {{ .Values.image.tag | toString | mustRegexFind "[a-zA-Z0-9-_.]+$" | trunc 63 | quote }}
 {{ include "generic.selectorLabels" . }}
 {{- with .Values.labels }}
 {{ toYaml . }}
