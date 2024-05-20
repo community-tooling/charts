@@ -1,0 +1,4 @@
+# Regression test for https://github.com/community-tooling/charts/issues/279
+# "{number}.{number}" is interpreted as a floating point number and therefore needs to be quoted
+image:
+  tag: 1.25
