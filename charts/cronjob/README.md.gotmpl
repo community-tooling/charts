@@ -23,6 +23,16 @@ env:
   ENV_VARIABLE_NAME: "value"
 ```
 
+### envFrom
+
+This enables you to load a complete ConfigMap or Secret into the env.
+
+```yaml
+envFrom:
+  - configMapRef:
+      name: special-config
+```
+
 ### envValueFrom
 
 This enables a simplified syntax to set envirnoment variables from a ConfigMap or Secret:

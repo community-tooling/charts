@@ -54,6 +54,9 @@ spec:
               {{- with .Values.args }}
               args: {{ toYaml . | nindent 16 }}
               {{- end }}
+              {{- with .Values.envFrom }}
+              envFrom: {{ toYaml . | nindent 16 }}
+              {{- end }}
               {{- if or .Values.env .Values.envValueFrom }}
               env:
                 {{- range $key, $value := .Values.env }}
