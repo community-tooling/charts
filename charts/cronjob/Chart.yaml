@@ -2,7 +2,7 @@ apiVersion: v2
 name: cronjob
 description: Run jobs on a schedule
 type: application
-version: 3.5.1
+version: 3.6.0
 maintainers:
   - name: morremeyer
   - name: ekeih

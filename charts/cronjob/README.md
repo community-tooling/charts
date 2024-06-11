@@ -1,6 +1,6 @@
 # cronjob
 
-![Version: 3.5.1](https://img.shields.io/badge/Version-3.5.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 3.6.0](https://img.shields.io/badge/Version-3.6.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Run jobs on a schedule
 
@@ -24,6 +24,16 @@ You can set environment variables directly with:
 ```yaml
 env:
   ENV_VARIABLE_NAME: "value"
+```
+
+### envFrom
+
+This enables you to load a complete ConfigMap or Secret into the env.
+
+```yaml
+envFrom:
+  - configMapRef:
+      name: special-config
 ```
 
 ### envValueFrom
@@ -73,6 +83,7 @@ configMap:
 | configMap.mountFiles | list | `[]` | Mounting of individual keys in the ConfigMap as files |
 | configMap.mountPath | string | `""` | If specified, the ConfigMap is mounted as a directory at this path |
 | env | list | `[]` | Directly set environment variables |
+| envFrom | list | `[]` | Directly set envFrom config |
 | envValueFrom | object | `{}` | Set environment variables from configMaps or Secrets |
 | failedJobsHistoryLimit | string | `nil` | The number of failed finished jobs to retain. |
 | fullnameOverride | string | `""` |  |
