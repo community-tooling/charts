@@ -16,7 +16,7 @@ jobs:
         uses: azure/setup-helm@fe7b79cd5ee1e45176fcad797de68ecaf3ca4814 # v4
         with:
           # renovate: datasource=github-releases depName=helm/helm
-          version: v3.15.1
+          version: v3.15.2
 
       - uses: actions/setup-python@82c7e631bb3cdc910f68e0081d67478d79c6982d # v5
         with:
