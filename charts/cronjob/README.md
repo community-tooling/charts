@@ -1,6 +1,6 @@
 # cronjob
 
-![Version: 3.6.0](https://img.shields.io/badge/Version-3.6.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 3.7.0](https://img.shields.io/badge/Version-3.7.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Run jobs on a schedule
 
@@ -87,6 +87,7 @@ configMap:
 | envValueFrom | object | `{}` | Set environment variables from configMaps or Secrets |
 | failedJobsHistoryLimit | string | `nil` | The number of failed finished jobs to retain. |
 | fullnameOverride | string | `""` |  |
+| hostAliases | list | `[]` | [Host Aliases](https://kubernetes.io/docs/tasks/network/customize-hosts-file-for-pods/#adding-additional-entries-with-hostaliases) |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"alpine"` |  |
 | image.tag | string | `"3.20.0"` |  |

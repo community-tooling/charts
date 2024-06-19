@@ -3,3 +3,9 @@ concurrencyPolicy: Forbid
 envFrom:
   - configMapRef:
       name: test-config
+
+hostAliases:
+  - ip: "127.0.0.1"
+    hostnames:
+      - "foo.local"
+      - "bar.local"
