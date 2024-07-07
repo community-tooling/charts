@@ -1,6 +1,6 @@
 # generic
 
-![Version: 7.5.6](https://img.shields.io/badge/Version-7.5.6-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 7.6.0](https://img.shields.io/badge/Version-7.6.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 A chart for generic applications. Use this if you need to deploy something without wanting to build a fully fledged new helm chart.
 
@@ -148,6 +148,7 @@ additionalObjects:
 | securityContext | object | `{}` |  |
 | service.annotations | object | `{}` |  |
 | service.ip | string | `nil` |  |
+| service.loadBalancerClass | string | `nil` |  |
 | service.loadBalancerIP | string | `nil` |  |
 | service.ports | list | `[{"name":"http","port":80,"protocol":"TCP","targetPort":"http"}]` | List of ports. If you override it, you will have to explicitly add the default again. |
 | service.ports[0] | object | `{"name":"http","port":80,"protocol":"TCP","targetPort":"http"}` | Target port on the pod. |

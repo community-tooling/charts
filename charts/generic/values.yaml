@@ -139,6 +139,7 @@ service:
 
   ## -- Only for type LoadBalancer
   loadBalancerIP: ~
+  loadBalancerClass: ~
 
 ingress:
   ## -- Enable or disable this Ingress
