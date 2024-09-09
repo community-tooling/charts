@@ -27,3 +27,12 @@ repos:
       - id: commitlint
         stages: [commit-msg]
         additional_dependencies: ["@commitlint/config-conventional"]
+
+  - repo: local
+    hooks:
+      - id: helm unittest
+        name: Run helm unittests
+        language: script
+        pass_filenames: false
+        entry: ./ci/helm-unittest
+        files: ^charts/.*
