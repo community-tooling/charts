@@ -19,6 +19,9 @@ pip3 install pre-commit
 # macOS
 brew install pre-commit
 
+# Install the unittest plugin
+make install
+
 pre-commit install --hook-type commit-msg --hook-type pre-commit
 ```
 
