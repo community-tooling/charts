@@ -24,7 +24,7 @@ jobs:
       - name: Download new files
         run: |
           # renovate: datasource=github-releases depName=rancher/system-upgrade-controller
-          export VERSION="0.13.4"
+          export VERSION="0.14.0"
 
           curl --silent -Lo charts/system-upgrade-controller-crds/templates/crd.yaml https://github.com/rancher/system-upgrade-controller/releases/download/v${VERSION}/crd.yaml
 
