@@ -90,7 +90,7 @@ configMap:
 | hostAliases | list | `[]` | [Host Aliases](https://kubernetes.io/docs/tasks/network/customize-hosts-file-for-pods/#adding-additional-entries-with-hostaliases) |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"alpine"` |  |
-| image.tag | string | `"3.20.2"` |  |
+| image.tag | string | `"3.20.3"` |  |
 | imagePullSecrets | list | `[]` | pull secrets for the specified image |
 | initContainers | list | `[]` | initContainers to use. Requires a list of valid container specs. |
 | labels | object | `{}` |  |
