@@ -53,12 +53,12 @@ The following table lists the configurable parameters of the chart and the defau
 | backupJob.backup.command | string | `nil` | command for the backup. Defaults to '/usr/bin/restic' by the upstream container. |
 | backupJob.backup.image.pullPolicy | string | `"IfNotPresent"` |  |
 | backupJob.backup.image.repository | string | `"restic/restic"` |  |
-| backupJob.backup.image.tag | string | `"0.17.0"` |  |
+| backupJob.backup.image.tag | string | `"0.17.1"` |  |
 | backupJob.backup.resources | object | `{}` | resources for the backup container |
 | backupJob.concurrencyPolicy | string | `"Forbid"` | concurrencyPolicy for the backup Jobs |
 | backupJob.env | list | `[]` | Additional environment values to load. Only applies to the backup container, not the init containers that initializes the restic repository. Has to match the pod.spec.containers.env spec. |
 | backupJob.failedJobsHistoryLimit | int | `1` | failedJobsHistoryLimit for the backup Jobs |
-| backupJob.init | object | `{"image":{"pullPolicy":"IfNotPresent","repository":"restic/restic","tag":"0.17.0"},"resources":{}}` | Configuration for the repository init container |
+| backupJob.init | object | `{"image":{"pullPolicy":"IfNotPresent","repository":"restic/restic","tag":"0.17.1"},"resources":{}}` | Configuration for the repository init container |
 | backupJob.init.resources | object | `{}` | resources for the init container |
 | backupJob.nodeSelector | object | `{}` |  |
 | backupJob.schedule | string | `"17 3 * * *"` | when to run backups |
@@ -74,7 +74,7 @@ The following table lists the configurable parameters of the chart and the defau
 | cleanupJob.failedJobsHistoryLimit | int | `1` | failedJobsHistoryLimit for the cleanup Jobs |
 | cleanupJob.image.pullPolicy | string | `"IfNotPresent"` |  |
 | cleanupJob.image.repository | string | `"restic/restic"` |  |
-| cleanupJob.image.tag | string | `"0.17.0"` |  |
+| cleanupJob.image.tag | string | `"0.17.1"` |  |
 | cleanupJob.keepDaily | int | `8` | number of daily snapshots to keep |
 | cleanupJob.keepMonthly | int | `13` | number of monthly snapshots to keep |
 | cleanupJob.keepWeekly | int | `5` | number of weekly snapshots to keep |
