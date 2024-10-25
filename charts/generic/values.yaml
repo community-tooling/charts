@@ -161,6 +161,7 @@ ingress:
           servicePortName: http
   tls: []
 
+# -- [Resources](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/) for the pods
 resources: {}
 
 autoscaling:
@@ -222,3 +223,28 @@ additionalContainers: []
 
 # -- [Topology Spread Constraints](https://kubernetes.io/docs/concepts/scheduling-eviction/topology-spread-constraints/)
 topologySpreadConstraints: []
+
+hooks:
+  # -- Enable or disable all hooks
+  enabled: false
+
+  # -- Hooks to be deployed. The map key is used as part of the Job name. Check the values file for an example.
+  jobs: {}
+    # pre-upgrade:
+    #   annotations:
+    #     helm.sh/hook: pre-install,pre-upgrade
+    #     helm.sh/hook-weight: "0"
+    #     helm.sh/hook-delete-policy: before-hook-creation
+
+    #   image:
+    #     repository: alpine
+    #     pullPolicy: IfNotPresent
+    #     tag: latest
+
+    #   command:
+    #     - echo
+    #   args:
+    #     - Hook executed!
+
+    #   # -- [Resources](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/) for the hook pod
+    #   resources: {}

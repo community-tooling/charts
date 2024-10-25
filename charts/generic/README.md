@@ -1,6 +1,6 @@
 # generic
 
-![Version: 7.6.1](https://img.shields.io/badge/Version-7.6.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 7.7.0](https://img.shields.io/badge/Version-7.7.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 A chart for generic applications. Use this if you need to deploy something without wanting to build a fully fledged new helm chart.
 
@@ -14,6 +14,15 @@ A chart for generic applications. Use this if you need to deploy something witho
 ## Upgrading
 
 See [the upgrading instructions](UPGRADING.md) for upgrades with breaking changes.
+
+## Hooks
+
+You can deploy **Jobs** as helm hooks with `.Values.hooks`.
+This is especially useful for tasks like database migrations that should only take part when the Deployment definition changes. Check the [helm hook](https://helm.sh/docs/topics/charts_hooks/) documentation for more details.
+
+Hooks get the same default labels and annotations as all other resources, however, you can add more annotations as you like - check the [values.yaml](values.yaml) file for a default hook example.
+
+The `image`, `command` and `args` for as well as the `resources` are configurable for every hook Job individually and follow the same configuration style as the Deployment.
 
 ## Complex values
 
@@ -108,6 +117,8 @@ additionalObjects:
 | envFrom | list | `[]` | Directly set envFrom config |
 | envValueFrom | object | `{}` | Set environment variables from configMaps or Secrets |
 | fullnameOverride | string | `""` |  |
+| hooks.enabled | bool | `false` | Enable or disable all hooks |
+| hooks.jobs | object | `{}` | Hooks to be deployed. The map key is used as part of the Job name. Check the values file for an example. |
 | hostNetwork | bool | `false` | Set to true to enable host networking |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"nginx"` |  |
@@ -142,7 +153,7 @@ additionalObjects:
 | ports[0].protocol | string | `"TCP"` |  |
 | readinessProbe.httpGet | object | `{"path":"/","port":"http"}` | Set `httpGet: ~` to deactivate |
 | replicaCount | int | `1` | number of replicas |
-| resources | object | `{}` |  |
+| resources | object | `{}` | [Resources](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/) for the pods |
 | restartPolicy | string | `"Always"` |  |
 | revisionHistoryLimit | string | `nil` | The number of old ReplicaSets to retain |
 | securityContext | object | `{}` |  |
