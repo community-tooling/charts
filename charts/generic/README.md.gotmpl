@@ -12,6 +12,15 @@
 
 See [the upgrading instructions](UPGRADING.md) for upgrades with breaking changes.
 
+## Hooks
+
+You can deploy **Jobs** as helm hooks with `.Values.hooks`.
+This is especially useful for tasks like database migrations that should only take part when the Deployment definition changes. Check the [helm hook](https://helm.sh/docs/topics/charts_hooks/) documentation for more details.
+
+Hooks get the same default labels and annotations as all other resources, however, you can add more annotations as you like - check the [values.yaml](values.yaml) file for a default hook example.
+
+The `image`, `command` and `args` for as well as the `resources` are configurable for every hook Job individually and follow the same configuration style as the Deployment.
+
 ## Complex values
 
 ### env

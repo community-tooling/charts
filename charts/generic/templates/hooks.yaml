@@ -1,0 +1,54 @@
+{{- if .Values.hooks.enabled }}
+{{- range $job, $config := .Values.hooks.jobs }}
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: {{ include "generic.fullname" $ }}-hook-{{ $job }}
+  labels:
+    {{- include "generic.labels" $ | nindent 4 }}
+  annotations:
+    {{- toYaml $config.annotations | nindent 4 }}
+    {{- with $.Values.annotations }}
+    {{- toYaml . | nindent 4 }}
+    {{- end }}
+spec:
+  template:
+    metadata:
+      name: {{ include "generic.fullname" $ }}-hook-{{ $job }}
+      {{- with $.Values.podAnnotations }}
+      annotations:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      labels:
+        {{- include "generic.podLabels" $ | nindent 8 }}
+    spec:
+      restartPolicy: Never
+      containers:
+        - name: hook
+          image: "{{ $config.image.repository }}:{{ $config.image.tag }}"
+          imagePullPolicy: {{ $config.image.pullPolicy }}
+          {{- with $config.command }}
+          command: {{ toYaml . | nindent 12}}
+          {{- end }}
+          {{- with $config.args }}
+          args: {{ toYaml . | nindent 12 }}
+          {{- end }}
+          {{- with $config.envFrom }}
+          envFrom: {{ toYaml . | nindent 12 }}
+          {{- end }}
+          {{- if or $config.env $config.envValueFrom }}
+          env:
+            {{- range $key, $value := $config.envValueFrom }}
+            - name: {{ $key }}
+              valueFrom: {{- $value | toYaml | nindent 16 }}
+            {{- end }}
+            {{- range $key, $value := $config.env }}
+            - name: {{ $key }}
+              value: {{ $value | quote }}
+            {{- end }}
+          {{- end }}
+          {{- with $config.resources }}
+          resources: {{- toYaml . | nindent 12 }}
+          {{- end }}
+{{- end }}
+{{- end }}

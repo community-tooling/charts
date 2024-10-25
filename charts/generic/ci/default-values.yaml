@@ -5,3 +5,7 @@ labels:
 # Regression test for https://github.com/community-tooling/charts/issues/246
 image:
   tag: 1.26.0@sha256:ba9587717b056e1993b051f71cea30ddd5caf09ae2087b1eeb11329f52468e49
+
+# Enable hooks to verify the default config is valid
+hooks:
+  enabled: true
