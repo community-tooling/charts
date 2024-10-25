@@ -118,8 +118,7 @@ additionalObjects:
 | envValueFrom | object | `{}` | Set environment variables from configMaps or Secrets |
 | fullnameOverride | string | `""` |  |
 | hooks.enabled | bool | `false` | Enable or disable all hooks |
-| hooks.jobs | object | `{"pre-upgrade":{"annotations":{"helm.sh/hook":"pre-install,pre-upgrade","helm.sh/hook-delete-policy":"before-hook-creation","helm.sh/hook-weight":"0"},"args":["Hook executed!"],"command":["echo"],"image":{"pullPolicy":"IfNotPresent","repository":"alpine","tag":"latest"},"resources":{}}}` | Hooks to be deployed. The map key is used inJob name |
-| hooks.jobs.pre-upgrade.resources | object | `{}` | [Resources](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/) for the hook pod |
+| hooks.jobs | object | `{}` | Hooks to be deployed. The map key is used as part of the Job name. Check the values file for an example. |
 | hostNetwork | bool | `false` | Set to true to enable host networking |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"nginx"` |  |
