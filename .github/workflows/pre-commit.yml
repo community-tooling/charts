@@ -8,8 +8,28 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          token: ${{ secrets.BOT_CHART_UPDATE_TOKEN }}
+          ref: ${{ github.head_ref }}
 
       - name: Setup for pre-commit
+        run: pip install pre-commit
+
+      - name: Install dependencies
         run: make install
 
-      - uses: pre-commit/action@2c7b3805fd2a0fd8c1884dcaebf91fc102a13ecd # v3.0.1
+      - name: Install pre-commit hooks
+        # Ensure all hooks are installed so that the following pre-commit run step only measures
+        # the time for the actual pre-commit run.
+        run: pre-commit install-hooks
+
+      - name: Run pre-commit
+        run: pre-commit run --verbose --show-diff-on-failure --color=always --all-files
+
+      - name: Commit linted files
+        if: ${{ failure() && github.event_name == 'pull_request' }}
+        uses: EndBug/add-and-commit@a94899bca583c204427a224a7af87c02f9b325d5 # v9.1.4
+        with:
+          message: "chore(pre-commit): linting"
+          author_name: Community Tooling Bot
+          author_email: community-tooling@maurice-meyer.de
