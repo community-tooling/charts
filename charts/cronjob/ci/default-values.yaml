@@ -9,3 +9,22 @@ hostAliases:
     hostnames:
       - "foo.local"
       - "bar.local"
+
+apiAccess:
+  # This is ignored since roleRules are set
+  enabled: false
+
+  rules:
+    - apiGroups: [""]
+      resources: ["pods"]
+      verbs: ["get", "list"]
+
+  roleRules:
+    - apiGroups: [""]
+      resources: ["deployments"]
+      verbs: ["get", "list"]
+
+  clusterRoleRules:
+    - apiGroups: [""]
+      resources: ["replicasets"]
+      verbs: ["get", "list"]

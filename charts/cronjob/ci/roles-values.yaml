@@ -1,6 +1,0 @@
-apiAccess:
-  enabled: true
-  rules:
-    - apiGroups: [""]
-      resources: ["pods"]
-      verbs: ["get", "list"]

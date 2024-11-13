@@ -1,6 +1,6 @@
-{{- if or (and .Values.apiAccess.enabled .Values.apiAccess.rules)  .Values.apiAccess.roleRules }}
+{{- if .Values.apiAccess.clusterRoleRules }}
 apiVersion: rbac.authorization.k8s.io/v1
-kind: Role
+kind: ClusterRole
 metadata:
   name: {{ include "cronjob.fullname" . }}
   labels:
@@ -12,5 +12,5 @@ metadata:
     {{- with .Values.annotations }}
     {{- toYaml . | nindent 4 }}
     {{- end }}
-rules: {{ toYaml (concat .Values.apiAccess.rules .Values.apiAccess.roleRules) | nindent 2 }}
+rules: {{ toYaml .Values.apiAccess.clusterRoleRules | nindent 2 }}
 {{- end }}

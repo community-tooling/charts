@@ -114,11 +114,17 @@ affinity: {}
 # -- Configuration for access to the Kubernetes API
 apiAccess:
 
-  # -- When set to true, a Role and RoleBinding are deployed that give access with the rules defined in apiAccess.rules
+  # -- DEPRECATED, this is automatically detected by checking if `roleRules` or `clusterRoleRules` are configured. If only `rules` are set, this can be set to false to prevent deployment of the Role and RoleBinding (backwards compatibility).
   enabled: false
 
-  # -- Rules for the API access of the ServiceAccount used by the CronJob pods. Check [the documentation](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#role-and-clusterrole) for more information
+  # -- DEPRECATED, use roleRules. Rules for the API access of the ServiceAccount used by the CronJob pods. Check [the documentation](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#role-and-clusterrole) for more information
   rules: []
+
+  # -- Rules for the Role the the pods are bound to. Check [the documentation](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#role-and-clusterrole) for more information
+  roleRules: []
+
+  # -- Rules for the ClusterRole the the pods are bound to. Check [the documentation](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#role-and-clusterrole) for more information
+  clusterRoleRules: []
 
 # -- [Host Aliases](https://kubernetes.io/docs/tasks/network/customize-hosts-file-for-pods/#adding-additional-entries-with-hostaliases)
 hostAliases: []
