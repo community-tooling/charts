@@ -1,6 +1,6 @@
 # cronjob
 
-![Version: 3.7.2](https://img.shields.io/badge/Version-3.7.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 3.8.0](https://img.shields.io/badge/Version-3.8.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Run jobs on a schedule
 
@@ -72,9 +72,11 @@ configMap:
 | additionalVolumes | list | `[]` |  |
 | affinity | object | `{}` | affinity object for the pod |
 | annotations | object | `{}` |  |
-| apiAccess | object | `{"enabled":false,"rules":[]}` | Configuration for access to the Kubernetes API |
-| apiAccess.enabled | bool | `false` | When set to true, a Role and RoleBinding are deployed that give access with the rules defined in apiAccess.rules |
-| apiAccess.rules | list | `[]` | Rules for the API access of the ServiceAccount used by the CronJob pods. Check [the documentation](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#role-and-clusterrole) for more information |
+| apiAccess | object | `{"clusterRoleRules":[],"enabled":false,"roleRules":[],"rules":[]}` | Configuration for access to the Kubernetes API |
+| apiAccess.clusterRoleRules | list | `[]` | Rules for the ClusterRole the the pods are bound to. Check [the documentation](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#role-and-clusterrole) for more information |
+| apiAccess.enabled | bool | `false` | DEPRECATED, this is automatically detected by checking if `roleRules` or `clusterRoleRules` are configured. If only `rules` are set, this can be set to false to prevent deployment of the Role and RoleBinding (backwards compatibility). |
+| apiAccess.roleRules | list | `[]` | Rules for the Role the the pods are bound to. Check [the documentation](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#role-and-clusterrole) for more information |
+| apiAccess.rules | list | `[]` | DEPRECATED, use roleRules. Rules for the API access of the ServiceAccount used by the CronJob pods. Check [the documentation](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#role-and-clusterrole) for more information |
 | args | list | `[]` | arguments to pass to the command or binary being run |
 | command | list | `[]` | the command or binary to run |
 | concurrencyPolicy | string | `"Allow"` | The [concurrencyPolicy](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/#concurrency-policy) for the CronJob |

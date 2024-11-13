@@ -1,4 +1,4 @@
-{{- if .Values.apiAccess.enabled }}
+{{- if or .Values.apiAccess.enabled .Values.apiAccess.roleRules }}
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
