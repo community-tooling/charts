@@ -79,6 +79,9 @@ configMap:
   # -- If specified, the ConfigMap is mounted as a directory at this path
   mountPath: ""
 
+  # -- Set the `defaultMode` for the files in the directory.
+  defaultMode: null
+
   # -- Mounting of individual keys in the ConfigMap as files
   mountFiles: []
     # - subPath: "config.yml"

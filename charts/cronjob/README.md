@@ -1,6 +1,6 @@
 # cronjob
 
-![Version: 3.8.0](https://img.shields.io/badge/Version-3.8.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 3.9.0](https://img.shields.io/badge/Version-3.9.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Run jobs on a schedule
 
@@ -81,6 +81,7 @@ configMap:
 | command | list | `[]` | the command or binary to run |
 | concurrencyPolicy | string | `"Allow"` | The [concurrencyPolicy](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/#concurrency-policy) for the CronJob |
 | configMap.data | object | `{}` | The data for the ConfigMap. Both keys and values need to be strings. |
+| configMap.defaultMode | string | `nil` | Set the `defaultMode` for the files in the directory. |
 | configMap.enabled | bool | `false` | If a ConfigMap with configurable values should be created |
 | configMap.mountFiles | list | `[]` | Mounting of individual keys in the ConfigMap as files |
 | configMap.mountPath | string | `""` | If specified, the ConfigMap is mounted as a directory at this path |

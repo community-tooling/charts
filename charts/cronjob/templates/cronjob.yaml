@@ -118,5 +118,8 @@ spec:
             - name: configmap
               configMap:
                 name: {{ include "cronjob.fullname" . }}
+                {{- with .Values.configMap.defaultMode }}
+                defaultMode: {{ . }}
+                {{- end }}
             {{- end }}
           {{- end }}

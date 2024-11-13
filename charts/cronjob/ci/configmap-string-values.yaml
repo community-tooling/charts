@@ -2,3 +2,6 @@ configMap:
   enabled: true
   data:
     test: This is a string
+
+  mountPath: /data
+  defaultMode: "0555"
