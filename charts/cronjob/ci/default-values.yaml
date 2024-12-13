@@ -1,5 +1,8 @@
 concurrencyPolicy: Forbid
 
+commonLabels:
+  testlabel.tld/owner: ci
+
 envFrom:
   - configMapRef:
       name: test-config
