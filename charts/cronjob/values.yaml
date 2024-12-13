@@ -52,6 +52,9 @@ command: []
 # -- arguments to pass to the command or binary being run
 args: []
 
+# -- extra labels applied to all resources
+commonLabels: {}
+
 # -- Directly set envFrom config
 envFrom: []
 
