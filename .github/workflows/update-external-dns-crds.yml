@@ -24,7 +24,7 @@ jobs:
       - name: Download new files
         run: |
           # renovate: datasource=github-releases depName=kubernetes-sigs/external-dns
-          export VERSION="0.15.0"
+          export VERSION="0.15.1"
 
           curl --silent -Lo charts/external-dns-crds/templates/dnsendpoints.yaml https://raw.githubusercontent.com/kubernetes-sigs/external-dns/v${VERSION}/docs/contributing/crd-source/crd-manifest.yaml
 
