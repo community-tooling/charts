@@ -6,10 +6,10 @@ sources:
   - https://github.com/kubernetes-sigs/external-dns
 
 # renovate: datasource=github-releases depName=kubernetes-sigs/external-dns
-version: 0.15.0
+version: 0.15.1
 
 # renovate: datasource=github-releases depName=kubernetes-sigs/external-dns
-appVersion: 0.15.0
+appVersion: 0.15.1
 
 maintainers:
   - name: morremeyer
