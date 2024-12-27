@@ -99,6 +99,7 @@ additionalObjects:
 | affinity | object | `{}` | Additional affinity terms. **Do not** specify PodAntiAffinities with preferredDuringSchedulingIgnoredDuringExecution here, these go to `additionalPreferredPodAntiAffinity`. All `requiredDuringScheduling` affinities need to be defined here. |
 | annotations | object | `{}` |  |
 | args | string | `nil` |  |
+| automountServiceAccountToken | string | `nil` | Whether to mount a serviceaccount token in the pod. Defaults to true unless `serviceAccount.create=false`. |
 | autoscaling.enabled | bool | `false` |  |
 | autoscaling.maxReplicas | int | `100` |  |
 | autoscaling.minReplicas | int | `1` |  |
@@ -147,7 +148,8 @@ additionalObjects:
 | podDisruptionBudget.maxUnavailable | string | `""` | How many pods can be unvailable, maximum |
 | podDisruptionBudget.minAvailable | string | `"25%"` | How many pods need to be available, minimum |
 | podLabels | object | `{}` | labels to add to the Pods |
-| podSecurityContext | object | `{}` |  |
+| podSecurityContext | object | `{}` | Pod-level security settings. If podSecurityStandard is set, podSecurityContext overrides those defaults. |
+| podSecurityStandard | string | `nil` | Set to `restricted` to set secure defaults for podSecurityContext and securityContext. See https://kubernetes.io/docs/concepts/security/pod-security-standards/ |
 | ports[0].containerPort | int | `80` |  |
 | ports[0].name | string | `"http"` |  |
 | ports[0].protocol | string | `"TCP"` |  |
@@ -156,7 +158,7 @@ additionalObjects:
 | resources | object | `{}` | [Resources](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/) for the pods |
 | restartPolicy | string | `"Always"` |  |
 | revisionHistoryLimit | string | `nil` | The number of old ReplicaSets to retain |
-| securityContext | object | `{}` |  |
+| securityContext | object | `{}` | Container-level security settings. If podSecurityStandard is set, securityContext overrides those defaults. |
 | service.annotations | object | `{}` |  |
 | service.ip | string | `nil` |  |
 | service.loadBalancerClass | string | `nil` |  |

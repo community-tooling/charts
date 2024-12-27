@@ -29,15 +29,23 @@ serviceAccount:
   # -- The name of the service account to use. If not set and create is true, a name is generated using the fullname template.
   name: ""
 
+# -- Whether to mount a serviceaccount token in the pod. Defaults to true unless `serviceAccount.create=false`.
+automountServiceAccountToken:
+
 # -- annotations to set for the Pods
 podAnnotations: {}
 
 # -- labels to add to the Pods
 podLabels: {}
 
+# -- Pod-level security settings. If podSecurityStandard is set, podSecurityContext overrides those defaults.
 podSecurityContext: {}
 
+# -- Container-level security settings. If podSecurityStandard is set, securityContext overrides those defaults.
 securityContext: {}
+
+# -- Set to `restricted` to set secure defaults for podSecurityContext and securityContext. See https://kubernetes.io/docs/concepts/security/pod-security-standards/
+podSecurityStandard:
 
 # -- How long the pod may take to terminate before it is killed by the kubelet
 terminationGracePeriodSeconds: 30
@@ -84,14 +92,16 @@ configMap:
   mountPath: ""
 
   # -- Mounting of individual keys in the ConfigMap as files
-  mountFiles: []
+  mountFiles:
+    []
     # - subPath: "config.yml"
     #   mountPath: /app/config.yml
 
 persistence:
   enabled: false
   # -- Annotations to add to the PersistentVolumeClaim
-  annotations: {}
+  annotations:
+    {}
     # helm.sh/resource-policy: keep
   # -- Where the persistent volume is mounted
   mountPath: /data
@@ -125,7 +135,7 @@ service:
 
   # -- List of ports. If you override it, you will have to explicitly add the default again.
   ports:
-      # -- Target port on the pod.
+    # -- Target port on the pod.
     - targetPort: http
       # -- Protocol to use for the target port.
       protocol: TCP
@@ -152,10 +162,10 @@ ingress:
   additionalLabels: {}
 
   hosts:
-      # -- host name to listen to
+    # -- host name to listen to
     - host: chart-example.local
       paths:
-          # -- URL path
+        # -- URL path
         - path: /
           # -- Name of the target port on the service
           servicePortName: http
@@ -172,7 +182,7 @@ autoscaling:
   # targetMemoryUtilizationPercentage: 80
 
 serviceMonitors:
-    # -- If a ServiceMonitor should be deployed. Needs the CRD installed
+  # -- If a ServiceMonitor should be deployed. Needs the CRD installed
   - enabled: false
     # -- Name of the resource, defaults to the release name
     name: ""
@@ -229,7 +239,8 @@ hooks:
   enabled: false
 
   # -- Hooks to be deployed. The map key is used as part of the Job name. Check the values file for an example.
-  jobs: {}
+  jobs:
+    {}
     # pre-upgrade:
     #   annotations:
     #     helm.sh/hook: pre-install,pre-upgrade
