@@ -10,7 +10,10 @@
     "automerge": false
   },
   "reviewers": ["morremeyer", "ekeih"],
-  "gitIgnoredAuthors": ["66853113+pre-commit-ci[bot]@users.noreply.github.com"],
+  "gitIgnoredAuthors": [
+    "66853113+pre-commit-ci[bot]@users.noreply.github.com",
+    "community-tooling@maurice-meyer.de"
+  ],
   "packageRules": [
     {
       "description": "Automatically upgrade 'version' key dependencies in GitHub Actions",
