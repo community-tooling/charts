@@ -7,11 +7,16 @@ jobs:
   pre-commit:
     runs-on: ubuntu-latest
     steps:
+      # Use the token with push permissions if a maintainer works in the repo directly
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        if: github.event.pull_request.head.repo.full_name == 'community-tooling/charts'
         with:
-          # Use the token with push permissions if a maintainer works in the repo directly
-          token: ${{ github.event.pull_request.head.repo.full_name == 'community-tooling/charts' && secrets.BOT_CHART_UPDATE_TOKEN || secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.BOT_CHART_UPDATE_TOKEN }}
           ref: ${{ github.head_ref }}
+
+      # Use the default config for all forks
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        if: github.event.pull_request.head.repo.full_name != 'community-tooling/charts'
 
       - name: Setup for pre-commit
         run: pip install pre-commit
