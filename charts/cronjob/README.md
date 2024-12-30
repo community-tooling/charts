@@ -1,6 +1,6 @@
 # cronjob
 
-![Version: 3.11.0](https://img.shields.io/badge/Version-3.11.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 4.0.0](https://img.shields.io/badge/Version-4.0.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Run jobs on a schedule
 
@@ -78,6 +78,7 @@ configMap:
 | apiAccess.roleRules | list | `[]` | Rules for the Role the the pods are bound to. Check [the documentation](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#role-and-clusterrole) for more information |
 | apiAccess.rules | list | `[]` | DEPRECATED, use roleRules. Rules for the API access of the ServiceAccount used by the CronJob pods. Check [the documentation](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#role-and-clusterrole) for more information |
 | args | list | `[]` | arguments to pass to the command or binary being run |
+| automountServiceAccountToken | string | `nil` | Whether to mount a serviceaccount token in the pod. Defaults to true unless `serviceAccount.create=false`. |
 | command | list | `[]` | the command or binary to run |
 | commonLabels | object | `{}` | extra labels applied to all resources |
 | concurrencyPolicy | string | `"Allow"` | The [concurrencyPolicy](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/#concurrency-policy) for the CronJob |
@@ -106,11 +107,12 @@ configMap:
 | persistence.storage | string | `"1Gi"` | the amount of space to require for the volume |
 | persistence.storageClassName | string | `nil` | Set a storageClassName, otherwise the default class is used. |
 | podAnnotations | object | `{}` |  |
-| podSecurityContext | object | `{}` |  |
+| podSecurityContext | object | `{}` | Pod-level security settings. If podSecurityStandard is set, podSecurityContext overrides those defaults. |
+| podSecurityStandard | string | `nil` | Set to `restricted` to set secure defaults for podSecurityContext and securityContext. See https://kubernetes.io/docs/concepts/security/pod-security-standards/ |
 | resources | object | `{}` | requests and limits for the container |
 | restartPolicy | string | `"OnFailure"` | if the Job should restart when the command fails |
 | schedule | string | `"17 3 * * *"` | schedule for the cronjob. |
-| securityContext | object | `{}` |  |
+| securityContext | object | `{}` | Container-level security settings. If podSecurityStandard is set, securityContext overrides those defaults. |
 | serviceAccount.annotations | object | `{}` | Annotations to add to the service account |
 | serviceAccount.create | bool | `true` | Specifies whether a service account should be created |
 | serviceAccount.name | string | `""` | The name of the service account to use. If not set and create is true, a name is generated using the fullname template. |

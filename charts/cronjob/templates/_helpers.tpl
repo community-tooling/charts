@@ -63,3 +63,27 @@ Create the name of the service account to use
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
 {{- end }}
+
+{{/*
+Generate the podSecurityContext based on the podSecurityStandard
+*/}}
+{{- define "cronjob.podSecurityContext" -}}
+{{- if eq .Values.podSecurityStandard "restricted" }}
+{{- $sc := dict "runAsNonRoot" true "seccompProfile" (dict "type" "RuntimeDefault") "fsGroup" 1000 "fsGroupChangePolicy" "OnRootMismatch" -}}
+{{- mustMerge $sc .Values.podSecurityContext | toYaml }}
+{{- else }}
+{{- .Values.podSecurityContext | toYaml }}
+{{- end }}
+{{- end }}
+
+{{/*
+Generate the securityContext based on the podSecurityStandard
+*/}}
+{{- define "cronjob.securityContext" -}}
+{{- if eq .Values.podSecurityStandard "restricted" }}
+{{- $psc := dict "privileged" false "allowPrivilegeEscalation" false "capabilities" (dict "drop" (list "ALL")) -}}
+{{- mustMerge $psc .Values.securityContext | toYaml }}
+{{- else }}
+{{- .Values.securityContext | toYaml }}
+{{- end }}
+{{- end }}
