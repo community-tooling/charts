@@ -34,10 +34,13 @@ spec:
           {{- with .Values.imagePullSecrets }}
           imagePullSecrets: {{- toYaml . | nindent 12 }}
           {{- end }}
+          {{- if or .Values.serviceAccount.create .Values.serviceAccount.name }}
           serviceAccountName: {{ include "cronjob.serviceAccountName" . }}
-          {{- with .Values.podSecurityContext }}
-          securityContext: {{- toYaml . | nindent 12 }}
+          automountServiceAccountToken: {{ default "true" .Values.automountServiceAccountToken }}
+          {{- else }}
+          automountServiceAccountToken: {{ default "false" .Values.automountServiceAccountToken }}
           {{- end }}
+          securityContext: {{- include "cronjob.podSecurityContext" . | nindent 12 }}
           {{- with .Values.initContainers }}
           initContainers: {{ toYaml . | nindent 12 }}
           {{- end }}
@@ -46,9 +49,7 @@ spec:
           {{- end }}
           containers:
             - name: {{ .Chart.Name }}
-              {{- with .Values.securityContext }}
-              securityContext: {{- toYaml . | nindent 16 }}
-              {{- end }}
+              securityContext: {{- include "cronjob.securityContext" . | nindent 16 }}
               image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
               imagePullPolicy: {{ .Values.image.pullPolicy }}
               {{- with .Values.command }}
