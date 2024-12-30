@@ -9,7 +9,8 @@ jobs:
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
-          token: ${{ secrets.BOT_CHART_UPDATE_TOKEN }}
+          # Use the token with push permissions if a maintainer works in the repo directly
+          token: ${{ github.event.pull_request.head.repo.full_name == 'community-tooling/charts' && secrets.BOT_CHART_UPDATE_TOKEN || secrets.GITHUB_TOKEN }}
           ref: ${{ github.head_ref }}
 
       - name: Setup for pre-commit
@@ -27,7 +28,7 @@ jobs:
         run: pre-commit run --verbose --show-diff-on-failure --color=always --all-files
 
       - name: Commit linted files
-        if: ${{ failure() && github.event_name == 'pull_request' }}
+        if: ${{ failure() && github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == 'community-tooling/charts' }}
         uses: EndBug/add-and-commit@a94899bca583c204427a224a7af87c02f9b325d5 # v9.1.4
         with:
           message: "chore(pre-commit): linting"
