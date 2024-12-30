@@ -1,5 +1,11 @@
 # Upgrading
 
+## 7.7.0 to 8.0.0
+
+If you are using the default ServiceAccount (which is generally discouraged) you must explicitly set `automountServiceAccountToken: true` now to match the behavior from 7.7.0.
+
+You should consider creating a dedicated ServiceAccount for your Deployment which automatically sets `automountServiceAccountToken: true`.
+
 ## 6.1.0 to 7.0.0
 
 Version 7.0.0 breaks compatibility for Kubernetes versions < 1.23.
