@@ -66,6 +66,9 @@ backupJob:
     # -- arguments for the backup. **Automatically generated, only set when necessary**
     args: []
 
+    # -- arguments that are passed to backup restic command as global flag
+    resticGlobalExtraArgs: []
+
     # -- resources for the backup container
     resources: {}
 
