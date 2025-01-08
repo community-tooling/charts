@@ -83,6 +83,9 @@ spec:
               - --exclude
               - "/data{{ . }}"
               {{- end }}
+              {{- range .Values.backupJob.backup.resticGlobalExtraArgs }}
+              - {{ . }}
+              {{- end }}
               - backup
               - /data
             {{- end }}
