@@ -1,5 +1,4 @@
 backupJob:
   backup:
-    resticGlobalExtraArgs: 
+    resticGlobalExtraArgs:
       - --limit-upload=80
-

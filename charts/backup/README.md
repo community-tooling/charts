@@ -1,6 +1,6 @@
 # backup
 
-![Version: 3.3.8](https://img.shields.io/badge/Version-3.3.8-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 3.4.0](https://img.shields.io/badge/Version-3.4.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Chart to back up PVCs with restic and regularly clean up the snapshots.
 
@@ -55,6 +55,7 @@ The following table lists the configurable parameters of the chart and the defau
 | backupJob.backup.image.repository | string | `"restic/restic"` |  |
 | backupJob.backup.image.tag | string | `"0.17.3"` |  |
 | backupJob.backup.resources | object | `{}` | resources for the backup container |
+| backupJob.backup.resticGlobalExtraArgs | list | `[]` | arguments that are passed to backup restic command as global flag |
 | backupJob.concurrencyPolicy | string | `"Forbid"` | concurrencyPolicy for the backup Jobs |
 | backupJob.env | list | `[]` | Additional environment values to load. Only applies to the backup container, not the init containers that initializes the restic repository. Has to match the pod.spec.containers.env spec. |
 | backupJob.failedJobsHistoryLimit | int | `1` | failedJobsHistoryLimit for the backup Jobs |
