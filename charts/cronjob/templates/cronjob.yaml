@@ -13,12 +13,8 @@ metadata:
     {{- end }}
 spec:
   suspend: {{ .Values.suspend }}
-  {{- with .Values.successfulJobsHistoryLimit }}
-  successfulJobsHistoryLimit: {{ . }}
-  {{- end }}
-  {{- with .Values.failedJobsHistoryLimit }}
-  failedJobsHistoryLimit: {{ . }}
-  {{- end }}
+  successfulJobsHistoryLimit: {{ .Values.successfulJobsHistoryLimit }}
+  failedJobsHistoryLimit: {{ .Values.failedJobsHistoryLimit }}
   schedule: "{{ .Values.schedule }}"
   concurrencyPolicy: "{{ .Values.concurrencyPolicy }}"
   jobTemplate:
