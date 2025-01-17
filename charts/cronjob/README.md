@@ -1,6 +1,6 @@
 # cronjob
 
-![Version: 4.0.0](https://img.shields.io/badge/Version-4.0.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 4.0.1](https://img.shields.io/badge/Version-4.0.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Run jobs on a schedule
 
@@ -90,7 +90,7 @@ configMap:
 | env | list | `[]` | Directly set environment variables |
 | envFrom | list | `[]` | Directly set envFrom config |
 | envValueFrom | object | `{}` | Set environment variables from configMaps or Secrets |
-| failedJobsHistoryLimit | string | `nil` | The number of failed finished jobs to retain. |
+| failedJobsHistoryLimit | int | `1` | The number of failed finished jobs to retain. https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/#jobs-history-limits |
 | fullnameOverride | string | `""` |  |
 | hostAliases | list | `[]` | [Host Aliases](https://kubernetes.io/docs/tasks/network/customize-hosts-file-for-pods/#adding-additional-entries-with-hostaliases) |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
@@ -116,6 +116,6 @@ configMap:
 | serviceAccount.annotations | object | `{}` | Annotations to add to the service account |
 | serviceAccount.create | bool | `true` | Specifies whether a service account should be created |
 | serviceAccount.name | string | `""` | The name of the service account to use. If not set and create is true, a name is generated using the fullname template. |
-| successfulJobsHistoryLimit | string | `nil` | The number of successful finished jobs to retain. |
+| successfulJobsHistoryLimit | int | `3` | The number of successful finished jobs to retain. https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/#jobs-history-limits |
 | suspend | bool | `false` | if the job should be suspended |
 | tolerations | list | `[]` | List of tolerations for the pod |

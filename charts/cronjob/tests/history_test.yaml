@@ -1,0 +1,39 @@
+suite: test successfulJobsHistoryLimit and failedJobsHistoryLimit
+templates:
+  - templates/cronjob.yaml
+release:
+  name: test-release
+  namespace: test-namespace
+tests:
+  - it: "verifies that the default successfulJobsHistoryLimit and failedJobsHistoryLimitare are not blank"
+    asserts:
+      - equal:
+          path: spec.successfulJobsHistoryLimit
+          value: 3
+      - equal:
+          path: spec.failedJobsHistoryLimit
+          value: 1
+
+  - it: "verifies that the successfulJobsHistoryLimit and failedJobsHistoryLimit value can be set normally"
+    set:
+      successfulJobsHistoryLimit: 99
+      failedJobsHistoryLimit: 13
+    asserts:
+      - equal:
+          path: spec.successfulJobsHistoryLimit
+          value: 99
+      - equal:
+          path: spec.failedJobsHistoryLimit
+          value: 13
+
+  - it: "verifies that setting successfulJobsHistoryLimit and failedJobsHistoryLimit can be set to zero"
+    set:
+      successfulJobsHistoryLimit: 0
+      failedJobsHistoryLimit: 0
+    asserts:
+      - equal:
+          path: spec.successfulJobsHistoryLimit
+          value: 0
+      - equal:
+          path: spec.failedJobsHistoryLimit
+          value: 0
