@@ -7,10 +7,12 @@ image:
 concurrencyPolicy: "Allow"
 
 # -- The number of successful finished jobs to retain.
-successfulJobsHistoryLimit: ~
+# https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/#jobs-history-limits
+successfulJobsHistoryLimit: 3
 
 # -- The number of failed finished jobs to retain.
-failedJobsHistoryLimit: ~
+# https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/#jobs-history-limits
+failedJobsHistoryLimit: 1
 
 # -- schedule for the cronjob.
 schedule: "17 3 * * *"

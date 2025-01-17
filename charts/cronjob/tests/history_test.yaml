@@ -5,14 +5,14 @@ release:
   name: test-release
   namespace: test-namespace
 tests:
-  - it: "verifies that the default successfulJobsHistoryLimit and failedJobsHistoryLimitare blank"
+  - it: "verifies that the default successfulJobsHistoryLimit and failedJobsHistoryLimitare are not blank"
     asserts:
       - equal:
           path: spec.successfulJobsHistoryLimit
-          value: null
+          value: 3
       - equal:
           path: spec.failedJobsHistoryLimit
-          value: null
+          value: 1
 
   - it: "verifies that the successfulJobsHistoryLimit and failedJobsHistoryLimit value can be set normally"
     set:
