@@ -138,6 +138,7 @@ additionalObjects:
 | livenessProbe.httpGet | object | `{"path":"/","port":"http"}` | Set `httpGet: ~` to deactivate |
 | nameOverride | string | `""` |  |
 | nodeSelector | object | `{}` |  |
+| persistence.accessMode | string | `"ReadWriteOnce"` |  |
 | persistence.annotations | object | `{}` | Annotations to add to the PersistentVolumeClaim |
 | persistence.enabled | bool | `false` |  |
 | persistence.mountPath | string | `"/data"` | Where the persistent volume is mounted |
