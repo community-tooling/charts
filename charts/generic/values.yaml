@@ -108,6 +108,7 @@ persistence:
   storage: 100Mi
   # -- Set a storageClassName, otherwise the default class is used.
   storageClassName: ~
+  accessMode: ReadWriteOnce
 
 ports:
   - name: http

@@ -1,6 +1,6 @@
 # generic
 
-![Version: 8.0.0](https://img.shields.io/badge/Version-8.0.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 8.1.0](https://img.shields.io/badge/Version-8.1.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 A chart for generic applications. Use this if you need to deploy something without wanting to build a fully fledged new helm chart.
 
@@ -138,6 +138,7 @@ additionalObjects:
 | livenessProbe.httpGet | object | `{"path":"/","port":"http"}` | Set `httpGet: ~` to deactivate |
 | nameOverride | string | `""` |  |
 | nodeSelector | object | `{}` |  |
+| persistence.accessMode | string | `"ReadWriteOnce"` |  |
 | persistence.annotations | object | `{}` | Annotations to add to the PersistentVolumeClaim |
 | persistence.enabled | bool | `false` |  |
 | persistence.mountPath | string | `"/data"` | Where the persistent volume is mounted |
