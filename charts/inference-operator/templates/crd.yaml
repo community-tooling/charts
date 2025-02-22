@@ -1,0 +1,162 @@
+apiVersion: apiextensions.k8s.io/v1
+kind: CustomResourceDefinition
+metadata:
+  name: inferenceendpoints.ai.anaconda.com
+  annotations:
+    "helm.sh/resource-policy": keep
+spec:
+  group: ai.anaconda.com
+  names:
+    kind: InferenceEndpoint
+    listKind: InferenceEndpointList
+    plural: inferenceendpoints
+    singular: inferenceendpoint
+    shortNames:
+      - ie
+  scope: Namespaced
+  versions:
+    - name: v1
+      served: true
+      storage: true
+      schema:
+        openAPIV3Schema:
+          type: object
+          properties:
+            spec:
+              type: object
+              properties:
+                suffix:
+                  type: string
+                  description: "Unique prefix for all resources associated with the CRD."
+                model_id:
+                  type: string
+                  description: "The model ID (base/name) to load."
+                quant:
+                  type: string
+                  description: "The quantization method (for file loading)."
+                startup_time:
+                  type: string
+                  description: "Expected time for the endpoint to be healthy."
+                memory:
+                  type: string
+                  description: "The amount of memory to provide the endpoint."
+                cpu:
+                  type: string
+                  description: "The amount of CPU to provide the endpoint."
+                gpu:
+                  type: boolean
+                  description: "Whether to run the endpoint with GPU support."
+                image_uri:
+                  type: string
+                  description: "The Docker image URI for the model runtime."
+                min_replicas:
+                  type: integer
+                  description: "The minimum number of replicas in the pod."
+                max_replicas:
+                  type: integer
+                  description: "The maximum number of replicas in the pod."
+                cpu_target_utilization:
+                  type: integer
+                  description: "Autoscaling metric for CPU utilization."
+                scale_up_stabilization_window:
+                  type: string
+                  description: "Autoscaling window."
+                namespace:
+                  type: string
+                  description: "The namespace to manage resources in."
+                apikey:
+                  type: string
+                  description: "The API key for llama.cpp server."
+                kurator_s3_bucket:
+                  type: string
+                  description: "Primary model source bucket."
+                kurator_s2_bucket:
+                  type: string
+                  description: "Secondary model source bucket."
+                inference_service_gateway:
+                  type: string
+                  description: "The external gateway for configuring access."
+                inference_service_hostname:
+                  type: string
+                  description: "The public hostname for ourselves."
+                llama_arg_n_gpu_layers:
+                  type: integer
+                  description: "LLM-specific parameter for GPU layers."
+                kurator_cloudflare:
+                  type: object
+                  description: "Cloudflare credentials configuration."
+                  properties:
+                    account_id:
+                      type: string
+                      description: "Cloudflare account ID."
+                    client_id:
+                      type: string
+                      description: "Cloudflare client ID."
+                    client_secret:
+                      type: object
+                      description: "Reference to the Cloudflare client secret."
+                      properties:
+                        name:
+                          type: string
+                          description: "Name of the Kubernetes Secret containing the Cloudflare client secret."
+                        key:
+                          type: string
+                          description: "Key within the Secret for the Cloudflare client secret."
+                      required:
+                        - name
+                        - key
+                  required:
+                    - account_id
+                    - client_id
+                    - client_secret
+              required:
+                - suffix
+                - model_id
+              x-kubernetes-preserve-unknown-fields: true
+            status:
+              type: object
+              description: "Status information for the InferenceEndpoint"
+              properties:
+                message:
+                  type: string
+                  description: "Human readable message indicating details about current operator phase or error."
+                service:
+                  type: string
+                  description: "Name of the created Kubernetes Service"
+                deployment:
+                  type: string
+                  description: "Name of the created Kubernetes Deployment"
+                hpa:
+                  type: string
+                  description: "Name of the created HorizontalPodAutoscaler"
+                virtualservice:
+                  type: string
+                  description: "Name of the created Istio VirtualService"
+                phase:
+                  type: string
+                  description: "Current phase of the InferenceEndpoint (Pending, Running, Failed, etc)"
+                  enum: ["Pending", "Running", "Failed", "Terminating", "Terminated"]
+              x-kubernetes-preserve-unknown-fields: true
+      subresources:
+        status: {}
+      additionalPrinterColumns:
+        - name: Status
+          type: string
+          jsonPath: .status.phase
+          description: "Current status of the endpoint"
+        - name: Message
+          type: string
+          jsonPath: .status.message
+          description: "Status message"
+        - name: Model ID
+          type: string
+          jsonPath: .spec.model_id
+          description: "Model identifier"
+        - name: GPU
+          type: boolean
+          jsonPath: .spec.gpu
+          description: "GPU usage status"
+        - name: Age
+          type: date
+          jsonPath: .metadata.creationTimestamp
+          description: "Time since creation"

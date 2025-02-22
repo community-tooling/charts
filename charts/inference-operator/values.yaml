@@ -1,0 +1,40 @@
+---
+resources:
+  requests:
+    cpu: 100m
+    memory: 512Mi
+  limits:
+    cpu: 200m
+    memory: 1024Mi
+
+serviceAccount:
+  create: true
+  name: "inference-operator"
+
+rbac:
+  create: true
+
+crds:
+  create: true
+
+livenessProbe:
+  httpGet:
+    path: /healthz
+    port: 8080
+  initialDelaySeconds: 10
+  periodSeconds: 10
+  timeoutSeconds: 5
+  successThreshold: 1
+  failureThreshold: 3
+
+service:
+  type: NodePort
+  port: 8000
+  targetPort: 8080
+  nodePort: 30036
+
+
+kurator_s3_bucket: some-s3-bucket
+kurator_r2_bucket: some-r2-bucket
+inference_service_gateway: some-gateway-name
+inference_service_hostname: some-hostname

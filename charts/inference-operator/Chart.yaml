@@ -1,0 +1,9 @@
+apiVersion: v2
+name: inference-operator
+description: A Helm chart for Kubernetes Inference Operator
+type: application
+version: 1.0.0
+appVersion: "1.0.0"
+maintainers:
+  - name: morremeyer
+  - name: ekeih
