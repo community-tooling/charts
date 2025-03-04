@@ -3640,6 +3640,20 @@ entries:
     version: 3.1.1
   system-upgrade-controller-crds:
   - apiVersion: v2
+    appVersion: 0.15.1
+    created: "2025-03-04T03:36:44.734132252Z"
+    description: A Helm chart to deploy the system-upgrade-controller CRDs
+    digest: 8b52d8063e70edcee3708638b7a39d42da5058b75b22217c284bc95c38a23ed0
+    maintainers:
+    - name: ekeih
+    name: system-upgrade-controller-crds
+    sources:
+    - https://github.com/rancher/system-upgrade-controller
+    type: application
+    urls:
+    - https://github.com/community-tooling/charts/releases/download/system-upgrade-controller-crds-0.15.1/system-upgrade-controller-crds-0.15.1.tgz
+    version: 0.15.1
+  - apiVersion: v2
     appVersion: 0.15.0
     created: "2025-02-19T01:51:38.701908335Z"
     description: A Helm chart to deploy the system-upgrade-controller CRDs
@@ -3748,4 +3762,4 @@ entries:
     urls:
     - https://github.com/community-tooling/charts/releases/download/znc-1.0.2/znc-1.0.2.tgz
     version: 1.0.2
-generated: "2025-03-03T16:09:33.02907813Z"
+generated: "2025-03-04T03:36:44.734552443Z"
