@@ -23,6 +23,9 @@ suspend: false
 # -- if the Job should restart when the command fails
 restartPolicy: OnFailure
 
+# -- how many times a job should be re-attempted when the command fails.
+backoffLimit: 6
+
 # -- initContainers to use. Requires a list of valid container specs.
 initContainers: []
 

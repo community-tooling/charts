@@ -1,6 +1,6 @@
 # cronjob
 
-![Version: 4.0.2](https://img.shields.io/badge/Version-4.0.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 4.0.3](https://img.shields.io/badge/Version-4.0.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Run jobs on a schedule
 
@@ -79,6 +79,7 @@ configMap:
 | apiAccess.rules | list | `[]` | DEPRECATED, use roleRules. Rules for the API access of the ServiceAccount used by the CronJob pods. Check [the documentation](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#role-and-clusterrole) for more information |
 | args | list | `[]` | arguments to pass to the command or binary being run |
 | automountServiceAccountToken | string | `nil` | Whether to mount a serviceaccount token in the pod. Defaults to true unless `serviceAccount.create=false`. |
+| backoffLimit | int | `6` | how many times a job should be re-attempted when the command fails. |
 | command | list | `[]` | the command or binary to run |
 | commonLabels | object | `{}` | extra labels applied to all resources |
 | concurrencyPolicy | string | `"Allow"` | The [concurrencyPolicy](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/#concurrency-policy) for the CronJob |

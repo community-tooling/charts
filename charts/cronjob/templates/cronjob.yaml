@@ -27,6 +27,7 @@ spec:
           labels: {{- include "cronjob.selectorLabels" . | nindent 12 }}
         spec:
           restartPolicy: {{ .Values.restartPolicy }}
+          backoffLimit: {{ .Values.backoffLimit }}
           {{- with .Values.imagePullSecrets }}
           imagePullSecrets: {{- toYaml . | nindent 12 }}
           {{- end }}
