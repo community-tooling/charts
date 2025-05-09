@@ -26,7 +26,7 @@ jobs:
           # renovate: datasource=github-releases depName=kubernetes-sigs/external-dns
           export VERSION="0.16.1"
 
-          curl --silent -Lo charts/external-dns-crds/templates/dnsendpoints.yaml https://raw.githubusercontent.com/kubernetes-sigs/external-dns/v${VERSION}/docs/contributing/crd-source/crd-manifest.yaml
+          curl --silent -Lo charts/external-dns-crds/templates/dnsendpoints.yaml https://raw.githubusercontent.com/kubernetes-sigs/external-dns/refs/tags/v${VERSION}/docs/sources/crd/crd-manifest.yaml
 
       - name: Commit updated files
         uses: EndBug/add-and-commit@a94899bca583c204427a224a7af87c02f9b325d5 # v9.1.4
