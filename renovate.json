@@ -28,8 +28,10 @@
     {
       "description": "Automatically upgrade 'version' key dependencies in GitHub Actions",
       "matchUpdateTypes": ["minor", "patch"],
-      "matchManagers": ["regex"],
-      "matchPaths": ["(^workflow-templates|\\.github/workflows)/[^/]+\\.ya?ml$"]
+      "matchManagers": ["custom.regex"],
+      "matchFileNames": [
+        "(^workflow-templates|\\.github/workflows)/[^/]+\\.ya?ml$"
+      ]
     },
     {
       "description": "Automerge all chart updates for CRD charts and charts that mostly package upstream yaml files",
@@ -62,15 +64,21 @@
   ],
   "customManagers": [
     {
+      "customType": "regex",
       "description": "Upgrade arbitrary dependencies with the key 'version' in a GitHub workflow file",
-      "fileMatch": ["(^workflow-templates|\\.github/workflows)/[^/]+\\.ya?ml$"],
+      "managerFilePatterns": [
+        "/(^workflow-templates|\\.github/workflows)/[^/]+\\.ya?ml$/"
+      ],
       "matchStrings": [
         "# renovate: datasource=(?<datasource>.*?)\\sdepName=(?<depName>.*?)\\s*version:\\s*\"?(?<currentValue>.*)\"?"
       ]
     },
     {
+      "customType": "regex",
       "description": "Upgrade go version in a GitHub workflow",
-      "fileMatch": ["(^workflow-templates|\\.github/workflows)/[^/]+\\.ya?ml$"],
+      "managerFilePatterns": [
+        "/(^workflow-templates|\\.github/workflows)/[^/]+\\.ya?ml$/"
+      ],
       "matchStrings": [
         "# renovate: go-version\\s*go-version:\\s*\"?(?<currentValue>.*)\"?"
       ],
@@ -78,10 +86,11 @@
       "depNameTemplate": "go"
     },
     {
+      "customType": "regex",
       "description": "Upgrade helm chart version for generated charts lockstep with the upstream releases",
-      "fileMatch": [
-        "^charts/.*/Chart.yaml$",
-        ".github/workflows/update-.*\\.yml"
+      "managerFilePatterns": [
+        "/^charts/.*/Chart.yaml$/",
+        "/.github/workflows/update-.*\\.yml/"
       ],
       "matchStrings": [
         "# renovate: datasource=(?<datasource>.*?)\\sregistryUrl=(?<registryUrl>.*?)\\sdepName=(?<depName>.*?)\\sversion: (?<currentValue>.*)",
@@ -91,15 +100,21 @@
       ]
     },
     {
+      "customType": "regex",
       "description": "Upgrade helm-docs version in a GitHub workflow",
-      "fileMatch": ["(^workflow-templates|\\.github/workflows)/[^/]+\\.ya?ml$"],
+      "managerFilePatterns": [
+        "/(^workflow-templates|\\.github/workflows)/[^/]+\\.ya?ml$/"
+      ],
       "matchStrings": [
         "# renovate: datasource=(?<datasource>.*?)\\sdepName=(?<depName>.*?)\\s*run: go install github.com/norwoodj/helm-docs/cmd/helm-docs@(?<currentValue>.*)"
       ]
     },
     {
+      "customType": "regex",
       "description": "Upgrade python-version version",
-      "fileMatch": ["(^workflow-templates|\\.github/workflows)/[^/]+\\.ya?ml$"],
+      "managerFilePatterns": [
+        "/(^workflow-templates|\\.github/workflows)/[^/]+\\.ya?ml$/"
+      ],
       "matchStrings": ["python-version:\\s(?<currentValue>.*)"],
       "datasourceTemplate": "github-tags",
       "depNameTemplate": "python/cpython"
