@@ -1,11 +1,7 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:recommended"
-  ],
-  "ignorePaths": [
-    "charts/znc/**"
-  ],
+  "extends": ["config:recommended"],
+  "ignorePaths": ["charts/znc/**"],
   "pre-commit": {
     "enabled": true
   },
@@ -13,40 +9,26 @@
   "major": {
     "automerge": false
   },
-  "reviewers": [
-    "morremeyer",
-    "ekeih"
-  ],
+  "reviewers": ["morremeyer", "ekeih"],
   "gitIgnoredAuthors": [
     "66853113+pre-commit-ci[bot]@users.noreply.github.com",
     "community-tooling@maurice-meyer.de"
   ],
   "packageRules": [
     {
-      "matchFileNames": [
-        "charts/**"
-      ],
+      "matchFileNames": ["charts/**"],
       "bumpVersions": [
         {
-          "filePatterns": [
-            "{{packageFileDir}}/Chart.{yaml,yml}"
-          ],
-          "matchStrings": [
-            "version:\\s(?<version>[^\\s]+)"
-          ],
+          "filePatterns": ["{{packageFileDir}}/Chart.{yaml,yml}"],
+          "matchStrings": ["version:\\s(?<version>[^\\s]+)"],
           "bumpType": "{{#if isMajor}}major{{else}}{{#if isMinor}}minor{{else}}patch{{/if}}{{/if}}"
         }
       ]
     },
     {
       "description": "Automatically upgrade 'version' key dependencies in GitHub Actions",
-      "matchUpdateTypes": [
-        "minor",
-        "patch"
-      ],
-      "matchManagers": [
-        "custom.regex"
-      ],
+      "matchUpdateTypes": ["minor", "patch"],
+      "matchManagers": ["custom.regex"],
       "matchFileNames": [
         "(^workflow-templates|\\.github/workflows)/[^/]+\\.ya?ml$"
       ]
@@ -62,19 +44,13 @@
     },
     {
       "description": "Pin GitHub action digests",
-      "matchDepTypes": [
-        "action"
-      ],
+      "matchDepTypes": ["action"],
       "rangeStrategy": "pin",
       "pinDigests": true
     },
     {
-      "matchDatasources": [
-        "github-tags"
-      ],
-      "matchPackageNames": [
-        "python/cpython"
-      ],
+      "matchDatasources": ["github-tags"],
+      "matchPackageNames": ["python/cpython"],
       "extractVersion": "^v(?<version>.*)$"
     },
     {
@@ -139,9 +115,7 @@
       "managerFilePatterns": [
         "/(^workflow-templates|\\.github/workflows)/[^/]+\\.ya?ml$/"
       ],
-      "matchStrings": [
-        "python-version:\\s(?<currentValue>.*)"
-      ],
+      "matchStrings": ["python-version:\\s(?<currentValue>.*)"],
       "datasourceTemplate": "github-tags",
       "depNameTemplate": "python/cpython"
     }
