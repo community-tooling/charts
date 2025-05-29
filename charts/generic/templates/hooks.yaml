@@ -1,5 +1,6 @@
 {{- if .Values.hooks.enabled }}
 {{- range $job, $config := .Values.hooks.jobs }}
+---
 apiVersion: batch/v1
 kind: Job
 metadata:
