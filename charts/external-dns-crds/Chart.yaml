@@ -5,8 +5,7 @@ type: application
 sources:
   - https://github.com/kubernetes-sigs/external-dns
 
-# renovate: datasource=github-releases depName=kubernetes-sigs/external-dns
-version: 0.18.0
+version: 0.18.1
 
 # renovate: datasource=github-releases depName=kubernetes-sigs/external-dns
 appVersion: 0.18.0
