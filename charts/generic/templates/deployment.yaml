@@ -90,12 +90,13 @@ spec:
               value: {{ $value | quote }}
             {{- end }}
           {{- end }}
-          {{- if or .Values.persistence.enabled .Values.additionalVolumeMounts .Values.configMap.mountPath .Values.configMap.mountFiles }}
+          {{- if or .Values.persistence.enabled .Values.additionalVolumeMounts (and (or .Values.configMap.mountPath .Values.configMap.mountFiles) .Values.configMap.enabled) }}
           volumeMounts:
             {{- if .Values.persistence.enabled }}
             - name: data
               mountPath: {{ .Values.persistence.mountPath }}
             {{- end }}
+            {{- if .Values.configMap.enabled }}
             {{- with .Values.configMap.mountPath }}
             - name: configmap
               mountPath: {{ . }}
@@ -106,6 +107,7 @@ spec:
               mountPath: {{ .mountPath }}
               subPath: {{ .subPath }}
               readOnly: true
+            {{- end }}
             {{- end }}
           {{- with .Values.additionalVolumeMounts }}
             {{- toYaml . | nindent 12 }}
@@ -164,7 +166,7 @@ spec:
       {{- with .Values.tolerations }}
       tolerations: {{- toYaml . | nindent 8 }}
       {{- end }}
-      {{- if or .Values.persistence.enabled .Values.additionalVolumes .Values.configMap.mountPath .Values.configMap.mountFiles }}
+      {{- if or .Values.persistence.enabled .Values.additionalVolumes (and (or .Values.configMap.mountPath .Values.configMap.mountFiles) .Values.configMap.enabled) }}
       volumes:
         {{- if .Values.persistence.enabled }}
         - name: data
