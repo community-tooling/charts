@@ -1,0 +1,7 @@
+# This is a regression test for a bug where setting configMap.enabled = false did not remove the mounts,
+# leading to a pod trying to mount a ConfigMap that didn't exist
+configMap:
+  enabled: false
+  mountFiles:
+    - subPath: file.conf
+      mountPath: /file.conf
