@@ -6,10 +6,10 @@ sources:
   - https://github.com/rancher/system-upgrade-controller
 
 # renovate: datasource=github-releases depName=rancher/system-upgrade-controller
-version: 0.17.1
+version: 0.17.2
 
 # renovate: datasource=github-releases depName=rancher/system-upgrade-controller
-appVersion: 0.16.2
+appVersion: 0.16.3
 
 maintainers:
   - name: ekeih
