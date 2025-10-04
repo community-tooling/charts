@@ -34,7 +34,7 @@ spec:
               - |
                 echo "Watching for other jobs with label app.kubernetes.io/component=backup..."
                 while true; do
-                  running=$(kubectl get jobs --all-namespaces -l app.kubernetes.io/component=backup -o jsonpath='{.items[*].status.active}')
+                  running=$(kubectl get jobs --all-namespaces -l app.kubernetes.io/component=backup -o jsonpath='{range .items[?(@.metadata.name!="'$JOB_NAME'")]}{.status.active}{end}')
                   if [ -z "$running" ]; then
                     echo "No active jobs found. Proceeding..."
                     break
@@ -42,6 +42,11 @@ spec:
                   echo "Detected running job(s). Waiting 10s..."
                   sleep 10
                 done
+            env:
+              - name: JOB_NAME
+                valueFrom:
+                  fieldRef:
+                    fieldPath: metadata.labels['job-name']
           {{- end }}
           - name: init
             image: "{{ .Values.backupJob.init.image.repository }}:{{ .Values.backupJob.init.image.tag }}"
