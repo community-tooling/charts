@@ -75,6 +75,9 @@ backupJob:
     # -- Additional volumes to mount to the restic container, e.g. to backup hostPaths.
     additionalVolumeMounts: []
 
+  # -- Sets up initContainer and RBAC that watches for the backup job in all namespaces and waits until none is running (to prevet having two at the same time running)
+  waitForOtherBackupJobs: false
+
   # -- Configuration for the repository init container
   init:
     image:

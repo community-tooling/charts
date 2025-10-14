@@ -1,0 +1,29 @@
+{{- if .Values.backupJob.waitForOtherBackupJobs }}
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: {{ include "backup.fullname" . }}
+  namespace: {{ .Release.Namespace }}
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: {{ include "backup.fullname" . }}
+rules:
+  - apiGroups: ["batch"]
+    resources: ["jobs"]
+    verbs: ["get", "list"]
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: {{ include "backup.fullname" . }}
+subjects:
+  - kind: ServiceAccount
+    name: {{ include "backup.fullname" . }}
+    namespace: {{ .Release.Namespace }}
+roleRef:
+  kind: ClusterRole
+  name: {{ include "backup.fullname" . }}
+  apiGroup: rbac.authorization.k8s.io
+{{- end }}
