@@ -1,6 +1,6 @@
 # generic
 
-![Version: 8.1.3](https://img.shields.io/badge/Version-8.1.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 9.0.0](https://img.shields.io/badge/Version-9.0.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 A chart for generic applications. Use this if you need to deploy something without wanting to build a fully fledged new helm chart.
 
@@ -117,7 +117,7 @@ additionalObjects:
 | env | list | `[]` | Directly set environment variables |
 | envFrom | list | `[]` | Directly set envFrom config |
 | envValueFrom | object | `{}` | Set environment variables from configMaps or Secrets |
-| fullnameOverride | string | `""` |  |
+| fullnameOverride | string | `""` | Override the name used for resource generation. Defaults to the release name. |
 | hooks.enabled | bool | `false` | Enable or disable all hooks |
 | hooks.jobs | object | `{}` | Hooks to be deployed. The map key is used as part of the Job name. Check the values file for an example. |
 | hostNetwork | bool | `false` | Set to true to enable host networking |
@@ -136,7 +136,7 @@ additionalObjects:
 | initContainers | list | `[]` |  |
 | labels | object | `{}` | Labels to add to all resources |
 | livenessProbe.httpGet | object | `{"path":"/","port":"http"}` | Set `httpGet: ~` to deactivate |
-| nameOverride | string | `""` |  |
+| nameOverride | string | `""` | Override the name of the chart for templating. Used for selector labels. Defaults to the chart name. |
 | nodeSelector | object | `{}` |  |
 | persistence.accessMode | string | `"ReadWriteOnce"` |  |
 | persistence.annotations | object | `{}` | Annotations to add to the PersistentVolumeClaim |
