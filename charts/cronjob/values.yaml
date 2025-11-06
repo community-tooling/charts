@@ -1,7 +1,7 @@
 image:
   repository: alpine
   pullPolicy: IfNotPresent
-  tag: "3.22.1"
+  tag: "3.22.2"
 
 # -- The [concurrencyPolicy](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/#concurrency-policy) for the CronJob
 concurrencyPolicy: "Allow"
