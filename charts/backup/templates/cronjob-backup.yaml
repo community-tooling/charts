@@ -25,6 +25,29 @@ spec:
             {{- toYaml . | nindent 12 }}
           {{- end }}
           initContainers:
+          {{- if .Values.backupJob.waitForOtherBackupJobs }}
+          - name: wait-for-other-jobs
+            image: ghcr.io/community-tooling/oci-images/kubectl:1.2.1
+            command:
+              - /bin/sh
+              - -c
+              - |
+                echo "Watching for other jobs with label app.kubernetes.io/component=backup..."
+                while true; do
+                  running=$(kubectl get jobs --all-namespaces -l app.kubernetes.io/component=backup -o jsonpath='{range .items[?(@.metadata.name!="'$JOB_NAME'")]}{.status.active}{end}')
+                  if [ -z "$running" ]; then
+                    echo "No active jobs found. Proceeding..."
+                    break
+                  fi
+                  echo "Detected running job(s). Waiting 10s..."
+                  sleep 10
+                done
+            env:
+              - name: JOB_NAME
+                valueFrom:
+                  fieldRef:
+                    fieldPath: metadata.labels['job-name']
+          {{- end }}
           - name: init
             image: "{{ .Values.backupJob.init.image.repository }}:{{ .Values.backupJob.init.image.tag }}"
             imagePullPolicy: {{ .Values.backupJob.init.image.pullPolicy }}

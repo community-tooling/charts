@@ -1,6 +1,6 @@
 # backup
 
-![Version: 3.5.1](https://img.shields.io/badge/Version-3.5.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 3.6.0](https://img.shields.io/badge/Version-3.6.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Chart to back up PVCs with restic and regularly clean up the snapshots.
 
@@ -66,6 +66,7 @@ The following table lists the configurable parameters of the chart and the defau
 | backupJob.securityContext | object | `{}` |  |
 | backupJob.successfulJobsHistoryLimit | int | `3` | successfulJobsHistoryLimit for the backup Jobs |
 | backupJob.tolerations | list | `[]` |  |
+| backupJob.waitForOtherBackupJobs | bool | `false` | Sets up initContainer and RBAC that watches for the backup job in all namespaces and waits until none is running (to prevet having two at the same time running) |
 | cleanupJob.additionalVolumeMounts | list | `[]` | Additional volumes to mount to the restic container, e.g. to backup hostPaths. |
 | cleanupJob.affinity | object | `{}` |  |
 | cleanupJob.args | list | `[]` | arguments for the cleanup. **Automatically generated, only set when necessary** |
