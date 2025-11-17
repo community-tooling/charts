@@ -8,14 +8,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       # Use the token with push permissions if a maintainer works in the repo directly
-      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+      - uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.1
         if: github.event.pull_request.head.repo.full_name == 'community-tooling/charts'
         with:
           token: ${{ secrets.BOT_CHART_UPDATE_TOKEN }}
           ref: ${{ github.head_ref }}
 
       # Use the default config for all forks
-      - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5.0.0
+      - uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.1
         if: github.event.pull_request.head.repo.full_name != 'community-tooling/charts'
 
       - name: Setup for pre-commit
