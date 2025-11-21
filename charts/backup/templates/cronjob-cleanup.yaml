@@ -36,7 +36,7 @@ spec:
           dnsPolicy: ClusterFirst
           {{- end }}
           {{- with .Values.dnsConfig }}
-          dnsConfig: {{- toYaml . | nindent 8 }}
+          dnsConfig: {{- toYaml . | nindent 12 }}
           {{- end }}
           initContainers:
           - name: init
