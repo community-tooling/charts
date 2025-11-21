@@ -16,6 +16,15 @@ imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
 
+# -- Set to true to enable host networking
+hostNetwork: false
+
+# -- Defaults to "ClusterFirst" if hostNetwork is false and "ClusterFirstWithHostNet" if hostNetwork is true.
+dnsPolicy:
+
+# -- Optional DNS settings
+dnsConfig: {}
+
 sftpConfig:
   # -- Deployed as ConfigMap and mounted to /etc/ssh/ssh_known_hosts
   knownHosts: []
