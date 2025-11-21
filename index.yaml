@@ -2,6 +2,18 @@ apiVersion: v1
 entries:
   backup:
   - apiVersion: v2
+    created: "2025-11-21T21:49:07.870804729Z"
+    description: Chart to back up PVCs with restic and regularly clean up the snapshots.
+    digest: 3b5d553a3901f536498da54ea61478285a6c514e795c5fcdf0e47ffd6af0c04c
+    maintainers:
+    - name: morremeyer
+    - name: ekeih
+    name: backup
+    type: application
+    urls:
+    - https://github.com/community-tooling/charts/releases/download/backup-3.6.1/backup-3.6.1.tgz
+    version: 3.6.1
+  - apiVersion: v2
     created: "2025-11-21T20:13:30.129156619Z"
     description: Chart to back up PVCs with restic and regularly clean up the snapshots.
     digest: 9bc0fc31841bf2816824c56ed934e62305235b7b6fe81c49942eb10eeb434bcf
@@ -182,6 +194,18 @@ entries:
     - https://github.com/community-tooling/charts/releases/download/backup-3.2.2/backup-3.2.2.tgz
     version: 3.2.2
   cronjob:
+  - apiVersion: v2
+    created: "2025-11-21T21:49:08.037352369Z"
+    description: Run jobs on a schedule
+    digest: fe4c4b0a0430c0b607551afa7732bde8bf5f2fd1b9ee7715978ace1ffe74d486
+    maintainers:
+    - name: morremeyer
+    - name: ekeih
+    name: cronjob
+    type: application
+    urls:
+    - https://github.com/community-tooling/charts/releases/download/cronjob-4.2.1/cronjob-4.2.1.tgz
+    version: 4.2.1
   - apiVersion: v2
     created: "2025-11-21T20:13:30.334504156Z"
     description: Run jobs on a schedule
@@ -4664,4 +4688,4 @@ entries:
     urls:
     - https://github.com/community-tooling/charts/releases/download/znc-1.0.2/znc-1.0.2.tgz
     version: 1.0.2
-generated: "2025-11-21T20:13:30.335853829Z"
+generated: "2025-11-21T21:49:08.038164138Z"
