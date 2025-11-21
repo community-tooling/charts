@@ -56,6 +56,15 @@ podSecurityContext: {}
 # -- Container-level security settings. If podSecurityStandard is set, securityContext overrides those defaults.
 securityContext: {}
 
+# -- Set to true to enable host networking
+hostNetwork: false
+
+# -- Defaults to "ClusterFirst" if hostNetwork is false and "ClusterFirstWithHostNet" if hostNetwork is true.
+dnsPolicy:
+
+# -- Optional DNS settings
+dnsConfig: {}
+
 # -- Set to `restricted` to set secure defaults for podSecurityContext and securityContext. See https://kubernetes.io/docs/concepts/security/pod-security-standards/
 podSecurityStandard:
 

@@ -1,6 +1,6 @@
 # cronjob
 
-![Version: 4.1.2](https://img.shields.io/badge/Version-4.1.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 4.2.0](https://img.shields.io/badge/Version-4.2.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Run jobs on a schedule
 
@@ -88,12 +88,15 @@ configMap:
 | configMap.enabled | bool | `false` | If a ConfigMap with configurable values should be created |
 | configMap.mountFiles | list | `[]` | Mounting of individual keys in the ConfigMap as files |
 | configMap.mountPath | string | `""` | If specified, the ConfigMap is mounted as a directory at this path |
+| dnsConfig | object | `{}` | Optional DNS settings |
+| dnsPolicy | string | `nil` | Defaults to "ClusterFirst" if hostNetwork is false and "ClusterFirstWithHostNet" if hostNetwork is true. |
 | env | list | `[]` | Directly set environment variables |
 | envFrom | list | `[]` | Directly set envFrom config |
 | envValueFrom | object | `{}` | Set environment variables from configMaps or Secrets |
 | failedJobsHistoryLimit | int | `1` | The number of failed finished jobs to retain. https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/#jobs-history-limits |
 | fullnameOverride | string | `""` |  |
 | hostAliases | list | `[]` | [Host Aliases](https://kubernetes.io/docs/tasks/network/customize-hosts-file-for-pods/#adding-additional-entries-with-hostaliases) |
+| hostNetwork | bool | `false` | Set to true to enable host networking |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"alpine"` |  |
 | image.tag | string | `"3.22.2"` |  |

@@ -24,6 +24,19 @@ spec:
           securityContext:
             {{- toYaml . | nindent 12 }}
           {{- end }}
+          {{- if .Values.hostNetwork }}
+          hostNetwork: {{ .Values.hostNetwork }}
+          {{- end }}
+          {{- if .Values.dnsPolicy }}
+          dnsPolicy: {{ .Values.dnsPolicy }}
+          {{- else if .Values.hostNetwork }}
+          dnsPolicy: ClusterFirstWithHostNet
+          {{- else }}
+          dnsPolicy: ClusterFirst
+          {{- end }}
+          {{- with .Values.dnsConfig }}
+          dnsConfig: {{- toYaml . | nindent 8 }}
+          {{- end }}
           initContainers:
           - name: init
             image: "{{ .Values.backupJob.init.image.repository }}:{{ .Values.backupJob.init.image.tag }}"

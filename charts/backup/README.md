@@ -1,6 +1,6 @@
 # backup
 
-![Version: 3.5.1](https://img.shields.io/badge/Version-3.5.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 3.6.0](https://img.shields.io/badge/Version-3.6.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Chart to back up PVCs with restic and regularly clean up the snapshots.
 
@@ -87,8 +87,11 @@ The following table lists the configurable parameters of the chart and the defau
 | cleanupJob.successfulJobsHistoryLimit | int | `3` | successfulJobsHistoryLimit for the cleanup Jobs |
 | cleanupJob.tolerations | list | `[]` |  |
 | compression | string | `nil` | compression mode (only available for repository format version 2), one of (auto|off|max) |
+| dnsConfig | object | `{}` | Optional DNS settings |
+| dnsPolicy | string | `nil` | Defaults to "ClusterFirst" if hostNetwork is false and "ClusterFirstWithHostNet" if hostNetwork is true. |
 | exclude | list | `[]` |  |
 | fullnameOverride | string | `""` |  |
+| hostNetwork | bool | `false` | Set to true to enable host networking |
 | imagePullSecrets | list | `[]` |  |
 | nameOverride | string | `""` |  |
 | pvc | string | `nil` |  |
