@@ -1,5 +1,22 @@
 # Upgrading
 
+## 8.1.3 to 9.0.0
+
+This release removes the default `-generic` suffix for generated resources.
+While this suffix makes sense for purpose-built helm charts, for this generic chart, it does not, since the suffix does not contain any information.
+
+### Migration
+
+**If you have set `fullnameOverride`**
+
+No migration is needed. However, if you have set `fullnameOverride` to the helm release name, you can remove it, since that is now the default behavior.
+
+**All other cases**
+
+To keep all resources as they are, set `fullnameOverride` to `{name of the release}-generic`.
+
+If you decide to delete and re-create the resources, keep in mind that the PVC will also be deleted and you'll need to ensure the data is backed up and restored appropriately.
+
 ## 7.7.0 to 8.0.0
 
 If you are using the default ServiceAccount (which is generally discouraged) you must explicitly set `automountServiceAccountToken: true` now to match the behavior from 7.7.0.
