@@ -580,6 +580,20 @@ entries:
     version: 3.1.4
   external-dns-crds:
   - apiVersion: v2
+    appVersion: 0.21.0
+    created: "2026-04-07T01:59:20.568040691Z"
+    description: A Helm chart to deploy the DNSEndpoint CRD
+    digest: 68dae477ebf79982dbe7057c7a7dc83935ca91e6c77d34669563951090faacb7
+    maintainers:
+    - name: morremeyer
+    name: external-dns-crds
+    sources:
+    - https://github.com/kubernetes-sigs/external-dns
+    type: application
+    urls:
+    - https://github.com/community-tooling/charts/releases/download/external-dns-crds-0.21.0/external-dns-crds-0.21.0.tgz
+    version: 0.21.0
+  - apiVersion: v2
     appVersion: 0.20.0
     created: "2025-11-14T18:44:52.475645246Z"
     description: A Helm chart to deploy the DNSEndpoint CRD
@@ -5026,4 +5040,4 @@ entries:
     urls:
     - https://github.com/community-tooling/charts/releases/download/znc-1.0.2/znc-1.0.2.tgz
     version: 1.0.2
-generated: "2026-04-04T21:40:36.234061422Z"
+generated: "2026-04-07T01:59:20.568660907Z"
