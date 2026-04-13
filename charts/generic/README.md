@@ -1,6 +1,6 @@
 # generic
 
-![Version: 8.1.3](https://img.shields.io/badge/Version-8.1.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 8.2.0](https://img.shields.io/badge/Version-8.2.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 A chart for generic applications. Use this if you need to deploy something without wanting to build a fully fledged new helm chart.
 
@@ -159,6 +159,20 @@ additionalObjects:
 | resources | object | `{}` | [Resources](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/) for the pods |
 | restartPolicy | string | `"Always"` |  |
 | revisionHistoryLimit | string | `nil` | The number of old ReplicaSets to retain |
+| route | object | `{"main":{"additionalRules":[],"annotations":{},"apiVersion":"gateway.networking.k8s.io/v1","enabled":false,"filters":[],"hostnames":[],"httpsRedirect":false,"kind":"HTTPRoute","labels":{},"matches":[{"path":{"type":"PathPrefix","value":"/"}}],"parentRefs":[],"servicePort":null,"timeouts":{}}}` | Gateway API HTTPRoute configuration. Supports multiple named routes. |
+| route.main.additionalRules | list | `[]` | additional custom rules prepended to the route rules |
+| route.main.annotations | object | `{}` | additional annotations for the route |
+| route.main.apiVersion | string | `"gateway.networking.k8s.io/v1"` | Gateway API version |
+| route.main.enabled | bool | `false` | enables HTTPRoute for server UI |
+| route.main.filters | list | `[]` | request/response filter configuration |
+| route.main.hostnames | list | `[]` | hostnames to match for this route |
+| route.main.httpsRedirect | bool | `false` | redirect all traffic to HTTPS (301) |
+| route.main.kind | string | `"HTTPRoute"` | Route kind (HTTPRoute or GRPCRoute) |
+| route.main.labels | object | `{}` | additional labels for the route |
+| route.main.matches | list | `[{"path":{"type":"PathPrefix","value":"/"}}]` | path/header match conditions |
+| route.main.parentRefs | list | `[]` | parentRefs defines which Gateways this route attaches to |
+| route.main.servicePort | string | `nil` | port of the backend service to route traffic to. Defaults to the first port in service.ports |
+| route.main.timeouts | object | `{}` | timeout configuration |
 | securityContext | object | `{}` | Container-level security settings. If podSecurityStandard is set, securityContext overrides those defaults. |
 | service.annotations | object | `{}` |  |
 | service.ip | string | `nil` |  |
