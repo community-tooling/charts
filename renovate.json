@@ -37,7 +37,6 @@
       "description": "Automerge all chart updates for CRD charts and charts that mostly package upstream yaml files",
       "matchPackageNames": [
         "external-dns",
-        "kube-prometheus-stack",
         "rancher/system-upgrade-controller"
       ],
       "automerge": true
