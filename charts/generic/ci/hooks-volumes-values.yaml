@@ -1,0 +1,56 @@
+# ct install uses a random release name (e.g. generic-a1b2c3d4). Pin the ConfigMap name so the hook volume reference stays valid.
+fullnameOverride: hooks-volumes-test
+
+configMap:
+  enabled: true
+  data:
+    migration.sql: |
+      SELECT 1;
+
+additionalObjects:
+  - apiVersion: v1
+    kind: Secret
+    metadata:
+      name: hook-credentials
+      annotations:
+        helm.sh/hook: post-install
+        helm.sh/hook-weight: "-1"
+        helm.sh/hook-delete-policy: hook-succeeded
+    stringData:
+      token: test
+
+hooks:
+  enabled: true
+  jobs:
+    post-install:
+      annotations:
+        helm.sh/hook: post-install
+        helm.sh/hook-weight: "0"
+        helm.sh/hook-delete-policy: before-hook-creation
+
+      image:
+        repository: alpine
+        pullPolicy: IfNotPresent
+        tag: latest
+
+      command:
+        - cat
+      args:
+        - /migrations/migration.sql
+
+      additionalVolumeMounts:
+        - name: configmap
+          mountPath: /migrations/migration.sql
+          subPath: migration.sql
+          readOnly: true
+        - name: credentials
+          mountPath: /etc/credentials
+          readOnly: true
+
+      additionalVolumes:
+        - name: configmap
+          configMap:
+            name: hooks-volumes-test
+        - name: credentials
+          secret:
+            secretName: hook-credentials

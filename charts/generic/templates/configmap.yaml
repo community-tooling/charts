@@ -5,6 +5,9 @@ metadata:
   name: {{ include "generic.fullname" . }}
   labels:
     {{- include "generic.labels" . | nindent 4 }}
+  {{- with .Values.configMap.annotations }}
+  annotations: {{- toYaml . | nindent 4 }}
+  {{- end }}
 data:
   {{- range $key, $value := .Values.configMap.data }}
   {{ $key }}: |
