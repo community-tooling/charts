@@ -1,0 +1,42 @@
+# Technically people should use `configMap` to create ConfigMaps but this simulates mounting an externally-created ConfigMap.
+additionalObjects:
+  - apiVersion: v1
+    kind: ConfigMap
+    metadata:
+      name: external-hook-config
+      annotations:
+        helm.sh/hook: pre-install
+        helm.sh/hook-weight: "-1"
+        helm.sh/hook-delete-policy: hook-succeeded
+    data:
+      app.conf: test
+
+hooks:
+  enabled: true
+  jobs:
+    pre-install:
+      annotations:
+        helm.sh/hook: pre-install
+        helm.sh/hook-weight: "0"
+        helm.sh/hook-delete-policy: before-hook-creation
+
+      image:
+        repository: alpine
+        pullPolicy: IfNotPresent
+        tag: latest
+
+      command:
+        - cat
+      args:
+        - /config/app.conf
+
+      additionalVolumeMounts:
+        - name: configmap
+          mountPath: /config/app.conf
+          subPath: app.conf
+          readOnly: true
+
+      additionalVolumes:
+        - name: configmap
+          configMap:
+            name: external-hook-config

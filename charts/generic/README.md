@@ -1,6 +1,6 @@
 # generic
 
-![Version: 8.2.0](https://img.shields.io/badge/Version-8.2.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 8.3.0](https://img.shields.io/badge/Version-8.3.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 A chart for generic applications. Use this if you need to deploy something without wanting to build a fully fledged new helm chart.
 
@@ -22,7 +22,38 @@ This is especially useful for tasks like database migrations that should only ta
 
 Hooks get the same default labels and annotations as all other resources, however, you can add more annotations as you like - check the [values.yaml](values.yaml) file for a default hook example.
 
-The `image`, `command` and `args` for as well as the `resources` are configurable for every hook Job individually and follow the same configuration style as the Deployment.
+The `image`, `command`, `args`, and `resources` are configurable for every hook Job individually and follow the same configuration style as the Deployment.
+
+By default, hooks do not mount the same volumes, configmaps, or secrets as the Deployment. If you need to mount any of those, you can use `additionalVolumeMounts` and `additionalVolumes`. Here is an example of mounting the same configmap as the Deployment:
+
+```yaml
+configMap:
+  annotations:
+    # When using pre-install hooks, ensure the confimap is created before the Job or else it will deadlock.
+    helm.sh/hook: pre-install
+    helm.sh/hook-weight: "-1"
+hooks:
+  enabled: true
+  jobs:
+    job-name:
+      annotations:
+        helm.sh/hook: pre-install
+        helm.sh/hook-weight: "0"
+      ...
+      additionalVolumeMounts:
+        - name: my-configmap
+          mountPath: /config/app.conf
+          subPath: app.conf
+          readOnly: true
+
+      additionalVolumes:
+        - name: my-configmap
+          configMap:
+            # This is the name format unless you set "fullnameOverride"
+            name: myreleasename-generic
+```
+
+An alternative is to use `additionalObjects` to create ConfigMaps, Secrets, or PersistenVolumeClaims, or just create the objects outside of this helm chart.
 
 ## Complex values
 
@@ -105,6 +136,7 @@ additionalObjects:
 | autoscaling.minReplicas | int | `1` |  |
 | autoscaling.targetCPUUtilizationPercentage | int | `80` |  |
 | command | string | `nil` |  |
+| configMap.annotations | object | `{}` | Annotations to add to the ConfigMap |
 | configMap.data | object | `{}` | The data for the ConfigMap. Both keys and values need to be strings. |
 | configMap.enabled | bool | `false` | If a ConfigMap with configurable values should be created |
 | configMap.mountFiles | list | `[]` | Mounting of individual keys in the ConfigMap as files |

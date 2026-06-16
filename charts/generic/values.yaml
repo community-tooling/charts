@@ -85,6 +85,9 @@ configMap:
   # -- If a ConfigMap with configurable values should be created
   enabled: false
 
+  # -- Annotations to add to the ConfigMap
+  annotations: {}
+
   # -- The data for the ConfigMap. Both keys and values need to be strings.
   data: {}
 
@@ -293,3 +296,14 @@ hooks:
 
     #   # -- [Resources](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/) for the hook pod
     #   resources: {}
+
+    #   # -- Note that if using pre-install/pre-upgrade hooks, any referenced ConfigMaps, Secrets, or Volumes must also be annotated with "helm.sh/hook: pre-install" or "helm.sh/hook: pre-upgrade" or else they will not exist when the job runs.
+    #   additionalVolumeMounts:
+    #     - name: configmap
+    #       mountPath: /migrations/migration.sql
+    #       subPath: migration.sql
+    #       readOnly: true
+    #   additionalVolumes:
+    #     - name: configmap
+    #       configMap:
+    #         name: my-release-generic
