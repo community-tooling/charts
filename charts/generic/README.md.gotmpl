@@ -21,7 +21,7 @@ Hooks get the same default labels and annotations as all other resources, howeve
 
 The `image`, `command`, `args`, and `resources` are configurable for every hook Job individually and follow the same configuration style as the Deployment.
 
-By default, hooks do not mount the same volumes, configmaps, or secrets as the Deployment. If you need to mount and of those, you can use `additionalVolumeMounts` and `additionalVolumes`. Here is an example of mounting the same configmap as the Deployment:
+By default, hooks do not mount the same volumes, configmaps, or secrets as the Deployment. If you need to mount any of those, you can use `additionalVolumeMounts` and `additionalVolumes`. Here is an example of mounting the same configmap as the Deployment:
 
 ```yaml
 configMap:
