@@ -7,6 +7,9 @@ metadata:
   name: {{ include "generic.fullname" $ }}-hook-{{ $job }}
   labels:
     {{- include "generic.labels" $ | nindent 4 }}
+    {{- with $config.metadata }}
+    {{- toYaml .additionalLabels | nindent 4 }}
+    {{- end }}
   annotations:
     {{- toYaml $config.annotations | nindent 4 }}
     {{- with $.Values.annotations }}

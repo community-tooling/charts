@@ -26,6 +26,10 @@ hooks:
         helm.sh/hook: post-install
         helm.sh/hook-weight: "0"
 
+      metadata:
+        additionalLabels:
+          extra-label: hook-test
+
       image:
         repository: alpine
         pullPolicy: IfNotPresent
