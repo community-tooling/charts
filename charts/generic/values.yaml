@@ -284,6 +284,10 @@ hooks:
     #     helm.sh/hook-weight: "0"
     #     helm.sh/hook-delete-policy: before-hook-creation
 
+    #   metadata:
+    #     # -- Additional labels to add to the Job resource
+    #     additionalLabels: {}
+
     #   image:
     #     repository: alpine
     #     pullPolicy: IfNotPresent
