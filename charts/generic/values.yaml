@@ -16,7 +16,11 @@ revisionHistoryLimit:
 initContainers: []
 
 imagePullSecrets: []
+
+# -- Override the name of the chart for templating. Used for selector labels. Defaults to the chart name.
 nameOverride: ""
+
+# -- Override the name used for resource generation. Defaults to the release name.
 fullnameOverride: ""
 
 serviceAccount:

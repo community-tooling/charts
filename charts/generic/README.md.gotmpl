@@ -47,7 +47,7 @@ hooks:
         - name: my-configmap
           configMap:
             # This is the name format unless you set "fullnameOverride"
-            name: myreleasename-generic
+            name: myreleasename
 ```
 
 An alternative is to use `additionalObjects` to create ConfigMaps, Secrets, or PersistenVolumeClaims, or just create the objects outside of this helm chart.
