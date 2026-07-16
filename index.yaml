@@ -809,6 +809,19 @@ entries:
     version: 0.13.5
   generic:
   - apiVersion: v2
+    created: "2026-07-16T09:30:28.353258823Z"
+    description: A chart for generic applications. Use this if you need to deploy
+      something without wanting to build a fully fledged new helm chart.
+    digest: 24d878a3bbfb20472a486225b30fc4d70cf7b8d0487745a0e9181cc46c36e27f
+    maintainers:
+    - name: morremeyer
+    - name: ekeih
+    name: generic
+    type: application
+    urls:
+    - https://github.com/community-tooling/charts/releases/download/generic-9.0.0/generic-9.0.0.tgz
+    version: 9.0.0
+  - apiVersion: v2
     created: "2026-06-29T14:06:43.004230189Z"
     description: A chart for generic applications. Use this if you need to deploy
       something without wanting to build a fully fledged new helm chart.
@@ -5251,4 +5264,4 @@ entries:
     urls:
     - https://github.com/community-tooling/charts/releases/download/znc-1.0.2/znc-1.0.2.tgz
     version: 1.0.2
-generated: "2026-07-05T12:49:47.033985526Z"
+generated: "2026-07-16T09:30:28.35384447Z"
