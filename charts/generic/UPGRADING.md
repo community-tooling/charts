@@ -11,6 +11,10 @@ While this suffix makes sense for purpose-built helm charts, for this generic ch
 
 No migration is needed. However, if you have set `fullnameOverride` to the helm release name, you can remove it, since that is now the default behavior.
 
+**If you have set `nameOverride`**
+
+If you have set `nameOverride` and the release name to the same value, no migration is needed.
+
 **All other cases**
 
 To keep all resources as they are, set `fullnameOverride` to `{name of the release}-generic`.
