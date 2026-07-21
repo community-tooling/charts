@@ -1,0 +1,4 @@
+namespaces:
+  test:
+    labels:
+      example.com/team: platform
