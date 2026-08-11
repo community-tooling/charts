@@ -1,0 +1,3 @@
+keepNamespaces: "true"
+disableNetworkPolicies: []
+namespaces: []
