@@ -1,5 +1,11 @@
 # Upgrading
 
+## 9.0.0 to 10.0.0
+
+This release adds `app.kubernetes.io/component: deployment` and `app.kubernetes.io/type: deployment` to the Deployment selector so that hooks and other workloads are not selected as application pods.
+
+Kubernetes does not allow changing a Deployment selector in place. Delete the existing Deployment before upgrading.
+
 ## 8.4.0 to 9.0.0
 
 This release removes the default `-generic` suffix for generated resources.

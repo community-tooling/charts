@@ -4,6 +4,8 @@ metadata:
   name: {{ include "generic.fullname" . }}
   labels:
     {{- include "generic.labels" . | nindent 4 }}
+    app.kubernetes.io/component: deployment
+    app.kubernetes.io/type: deployment
   {{- with .Values.annotations }}
   annotations: {{- toYaml . | nindent 4 }}
   {{- end }}
@@ -12,7 +14,10 @@ spec:
   replicas: {{ .Values.replicaCount }}
   {{- end }}
   selector:
-    matchLabels: {{- include "generic.selectorLabels" . | nindent 6 }}
+    matchLabels:
+      {{- include "generic.selectorLabels" . | nindent 6 }}
+      app.kubernetes.io/component: deployment
+      app.kubernetes.io/type: deployment
   {{- with .Values.deploymentStrategy }}
   strategy:
     {{- toYaml . | nindent 4 }}
@@ -33,6 +38,8 @@ spec:
       {{- end }}
       labels:
         {{- include "generic.podLabels" . | nindent 8 }}
+        app.kubernetes.io/component: deployment
+        app.kubernetes.io/type: deployment
     spec:
       restartPolicy: {{ .Values.restartPolicy }}
       {{- with .Values.imagePullSecrets }}
