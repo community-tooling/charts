@@ -59,6 +59,11 @@
         "rancher/system-upgrade-controller"
       ],
       "extractVersion": "^v(?<version>.*)$"
+    },
+    {
+      "description": "Reduce renovate pre-commit-hook update frequency to once per week (on Sundays)",
+      "matchPackageNames": ["renovatebot/pre-commit-hooks"],
+      "schedule": ["* * * * 0"]
     }
   ],
   "customManagers": [
