@@ -1,0 +1,9 @@
+namespaces:
+  test:
+    networkPolicies:
+      allow-from-same-namespace:
+        spec:
+          podSelector: {}
+          ingress:
+            - from:
+                - podSelector: {}
