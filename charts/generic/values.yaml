@@ -42,6 +42,9 @@ podAnnotations: {}
 # -- labels to add to the Pods
 podLabels: {}
 
+# -- labels to add to the hooks Pods
+hooksPodLabels: {}
+
 # -- Pod-level security settings. If podSecurityStandard is set, podSecurityContext overrides those defaults.
 podSecurityContext: {}
 

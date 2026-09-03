@@ -1,0 +1,69 @@
+suite: test hooks
+templates:
+  - templates/hooks.yaml
+release:
+  name: test-release
+  namespace: test-namespace
+tests:
+  - it: "renders no hook Job when hooks are disabled"
+    asserts:
+      - hasDocuments:
+          count: 0
+
+  - it: "gives hook pods their own labels, not the app selector labels"
+    set:
+      hooks.enabled: true
+      hooks.jobs:
+        pre-install:
+          annotations:
+            helm.sh/hook: pre-install
+          image:
+            repository: alpine
+            pullPolicy: IfNotPresent
+            tag: latest
+          command:
+            - echo
+          args:
+            - hook
+    asserts:
+      - isKind:
+          of: Job
+      - equal:
+          path: spec.template.metadata.labels["app.kubernetes.io/name"]
+          value: hooks-generic
+      - equal:
+          path: spec.template.metadata.labels["app.kubernetes.io/instance"]
+          value: hooks-test-release
+      # The hook pod must NOT carry the app selector labels used by the
+      # Service/Deployment/PDB/ServiceMonitor selectors.
+      - notEqual:
+          path: spec.template.metadata.labels["app.kubernetes.io/name"]
+          value: generic
+      - notEqual:
+          path: spec.template.metadata.labels["app.kubernetes.io/instance"]
+          value: test-release
+
+  - it: "adds user-supplied hooksPodLabels to hook pods"
+    set:
+      hooks.enabled: true
+      hooksPodLabels:
+        team: platform
+      hooks.jobs:
+        pre-install:
+          annotations:
+            helm.sh/hook: pre-install
+          image:
+            repository: alpine
+            pullPolicy: IfNotPresent
+            tag: latest
+          command:
+            - echo
+          args:
+            - hook
+    asserts:
+      - equal:
+          path: spec.template.metadata.labels["team"]
+          value: platform
+      - equal:
+          path: spec.template.metadata.labels["app.kubernetes.io/name"]
+          value: hooks-generic
