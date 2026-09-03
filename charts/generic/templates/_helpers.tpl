@@ -46,12 +46,24 @@ app.kubernetes.io/name: {{ include "generic.name" . }}
 app.kubernetes.io/instance: {{ .Release.Name }}
 {{- end }}
 
+{{- define "generic.hooksSelectorLabels" -}}
+app.kubernetes.io/name: hooks-{{ include "generic.name" . }}
+app.kubernetes.io/instance: hooks-{{ .Release.Name }}
+{{- end }}
+
 {{/*
 Pod labels
 */}}
 {{- define "generic.podLabels" -}}
 {{ include "generic.selectorLabels" . }}
 {{- with .Values.podLabels }}
+{{ toYaml . }}
+{{- end }}
+{{- end }}
+
+{{- define "generic.hooksPodLabels" -}}
+{{ include "generic.hooksSelectorLabels" . }}
+{{- with .Values.hooksPodLabels }}
 {{ toYaml . }}
 {{- end }}
 {{- end }}

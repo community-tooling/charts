@@ -24,7 +24,7 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       labels:
-        {{- include "generic.podLabels" $ | nindent 8 }}
+        {{- include "generic.hooksPodLabels" $ | nindent 8 }}
     spec:
       restartPolicy: Never
       containers:

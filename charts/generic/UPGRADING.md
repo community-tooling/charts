@@ -1,5 +1,11 @@
 # Upgrading
 
+## 9.0.0 to 10.0.0
+
+This release updates the labels for the hook pods. If you do not use hooks, or do not have dependencies on hook pod labels matching specific values, no action is needed.
+
+If you reference hook pod labels anywhere, you'll need to update these references to be prefixed with `hooks-`
+
 ## 8.4.0 to 9.0.0
 
 This release removes the default `-generic` suffix for generated resources.

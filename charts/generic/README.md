@@ -1,6 +1,6 @@
 # generic
 
-![Version: 9.0.0](https://img.shields.io/badge/Version-9.0.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 10.0.0](https://img.shields.io/badge/Version-10.0.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 A chart for generic applications. Use this if you need to deploy something without wanting to build a fully fledged new helm chart.
 
@@ -152,6 +152,7 @@ additionalObjects:
 | fullnameOverride | string | `""` | Override the name used for resource generation. Defaults to the release name. |
 | hooks.enabled | bool | `false` | Enable or disable all hooks |
 | hooks.jobs | object | `{}` | Hooks to be deployed. The map key is used as part of the Job name. Check the values file for an example. |
+| hooksPodLabels | object | `{}` | labels to add to the hooks Pods |
 | hostNetwork | bool | `false` | Set to true to enable host networking |
 | image.pullPolicy | string | `"IfNotPresent"` |  |
 | image.repository | string | `"nginx"` |  |
