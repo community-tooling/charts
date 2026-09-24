@@ -1,0 +1,6 @@
+keepNamespaces: false
+keepNetworkPolicies: true
+disableNetworkPolicies: false
+namespaces:
+  no-defaults:
+    disableDefaultNetworkPolicies: true

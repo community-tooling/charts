@@ -1,0 +1,6 @@
+defaultNetworkPolicies:
+  default-policy:
+    spec:
+      podSelector: {}
+      policyTypes:
+        - Ingress

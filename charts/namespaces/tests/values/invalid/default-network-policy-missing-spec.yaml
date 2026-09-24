@@ -1,0 +1,3 @@
+defaultNetworkPolicies:
+  default-policy:
+    podSelector: {}

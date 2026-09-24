@@ -1,6 +1,6 @@
 # namespaces
 
-![Version: 3.2.0](https://img.shields.io/badge/Version-3.2.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 4.0.0](https://img.shields.io/badge/Version-4.0.0-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Deploy namespaces with (default) networkpolicies
 
@@ -43,6 +43,12 @@ namespaces:
 ```
 
 ## Upgrading
+
+### To 4.0.0
+
+This release adds a `values.schema.json` and validates chart values during `helm lint`, `helm template`, `helm install`, and `helm upgrade`.
+
+Values that previously rendered broken manifests, such as `networkPolicies.<name>` entries without a nested `spec`, now fail with a validation error instead.
 
 ### To 3.0.0
 
