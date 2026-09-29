@@ -1,0 +1,6 @@
+namespaces:
+  test:
+    ciliumNetworkPolicies:
+      allow-all:
+        spec:
+          endpointSelector: {}
