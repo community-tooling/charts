@@ -64,6 +64,12 @@
       "description": "Reduce renovate pre-commit-hook update frequency to once per week (on Sundays)",
       "matchPackageNames": ["renovatebot/pre-commit-hooks"],
       "schedule": ["* * * * 0"]
+    },
+    {
+      "description": "Block helm-docs calver-like versions from 2019",
+      "matchManagers": ["pre-commit"],
+      "matchPackageNames": ["norwoodj/helm-docs"],
+      "allowedVersions": "!/^19\\.(0614|0110)$/"
     }
   ],
   "customManagers": [
