@@ -41,6 +41,12 @@ namespaces:
 
 ## Upgrading
 
+### To 4.0.0
+
+This release adds a `values.schema.json` and validates chart values during `helm lint`, `helm template`, `helm install`, and `helm upgrade`.
+
+Values that previously rendered broken manifests, such as `networkPolicies.<name>` entries without a nested `spec`, now fail with a validation error instead.
+
 ### To 3.0.0
 
 Previous versions added annotations to all namespaces and network policies to prevent Helm from deleting them when they got removed from the chart release. This release disables that behaviour for network policies. To keep the old behaviour set `keepNetworkPolicies: true`.

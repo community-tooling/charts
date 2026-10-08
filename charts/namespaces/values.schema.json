@@ -1,0 +1,107 @@
+{
+  "$schema": "https://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "namespaces": {
+      "type": "object",
+      "description": "Namespaces to deploy, keyed by namespace name.",
+      "additionalProperties": {
+        "$ref": "#/definitions/namespaceConfig"
+      }
+    },
+    "keepNamespaces": {
+      "type": "boolean",
+      "description": "Configure if namespaces should get deleted when they are removed from the chart release."
+    },
+    "keepNetworkPolicies": {
+      "type": "boolean",
+      "description": "Configure if NetworkPolicies should get deleted when they are removed from the chart release."
+    },
+    "defaultNetworkPolicies": {
+      "type": "object",
+      "description": "NetworkPolicies that will be applied to all namespaces, keyed by policy name.",
+      "additionalProperties": {
+        "$ref": "#/definitions/networkPolicyConfig"
+      }
+    },
+    "disableNetworkPolicies": {
+      "type": "boolean",
+      "description": "Switch to disable all NetworkPolicies."
+    },
+    "nameOverride": {
+      "type": "string"
+    },
+    "fullnameOverride": {
+      "type": "string"
+    },
+    "serviceAccount": {
+      "type": "object",
+      "properties": {
+        "create": {
+          "type": "boolean"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": true,
+  "definitions": {
+    "networkPolicyConfig": {
+      "type": "object",
+      "required": ["spec"],
+      "properties": {
+        "spec": {
+          "type": "object"
+        }
+      },
+      "additionalProperties": true
+    },
+    "ciliumNetworkPolicyConfig": {
+      "type": "object",
+      "properties": {
+        "spec": {
+          "type": "object"
+        },
+        "specs": {
+          "type": "array"
+        }
+      },
+      "anyOf": [
+        {
+          "required": ["spec"]
+        },
+        {
+          "required": ["specs"]
+        }
+      ],
+      "additionalProperties": true
+    },
+    "namespaceConfig": {
+      "type": "object",
+      "properties": {
+        "labels": {
+          "type": "object"
+        },
+        "disableDefaultNetworkPolicies": {
+          "type": "boolean"
+        },
+        "networkPolicies": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/networkPolicyConfig"
+          }
+        },
+        "ciliumNetworkPolicies": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/ciliumNetworkPolicyConfig"
+          }
+        }
+      },
+      "additionalProperties": true
+    }
+  }
+}
