@@ -1,0 +1,7 @@
+namespaces:
+  test:
+    networkPolicies:
+      allow-all:
+        podSelector: {}
+        ingress:
+          - {}
